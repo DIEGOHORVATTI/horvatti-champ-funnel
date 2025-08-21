@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  base: './',
   server: {
     allowedHosts: true,
   },
@@ -25,8 +26,5 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
     },
-  },
-  define: {
-    global: 'globalThis',
   },
 })
