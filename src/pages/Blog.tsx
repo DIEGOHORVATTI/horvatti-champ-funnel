@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import PageLayout from '@/react-app/components/PageLayout';
+import { useState } from 'react'
+import PageLayout from '@/components/PageLayout'
 import {
   Search,
   Calendar,
@@ -10,12 +10,12 @@ import {
   TrendingUp,
   BookOpen,
   Filter,
-  Star
-} from 'lucide-react';
+  Star,
+} from 'lucide-react'
 
 export default function Blog() {
-  const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Todos');
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('Todos')
 
   const categories = [
     'Todos',
@@ -25,13 +25,12 @@ export default function Blog() {
     'Gestão',
     'Nutrição',
     'Sanidade',
-    'Mercado'
-  ];
+    'Mercado',
+  ]
 
   const featuredPost = {
     id: 1,
-    title:
-      'Revolução na IATF: Como a Tecnologia Está Transformando a Reprodução Bovina',
+    title: 'Revolução na IATF: Como a Tecnologia Está Transformando a Reprodução Bovina',
     excerpt:
       'Descubra as últimas inovações em protocolos de inseminação artificial em tempo fixo e como elas podem aumentar sua taxa de prenhez em até 40%.',
     author: 'Dr. Carlos Mendes',
@@ -40,33 +39,31 @@ export default function Blog() {
     category: 'IATF',
     image:
       'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-    featured: true
-  };
+    featured: true,
+  }
 
   const posts = [
     {
       id: 2,
       title: '5 Indicadores Que Todo Pecuarista Deveria Acompanhar',
-      excerpt:
-        'Métricas essenciais para maximizar a produtividade e rentabilidade do seu rebanho.',
+      excerpt: 'Métricas essenciais para maximizar a produtividade e rentabilidade do seu rebanho.',
       author: 'Ana Silva',
       date: '12 de Agosto, 2025',
       readTime: '5 min',
       category: 'Gestão',
       image:
-        'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://images.unsplash.com/photo-1566385101042-1a0aa0c1268c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 3,
       title: 'Nutrição de Precisão: Alimentando o Futuro da Pecuária',
-      excerpt:
-        'Como a alimentação personalizada por animal pode revolucionar seus resultados.',
+      excerpt: 'Como a alimentação personalizada por animal pode revolucionar seus resultados.',
       author: 'Prof. João Santos',
       date: '10 de Agosto, 2025',
       readTime: '6 min',
       category: 'Nutrição',
       image:
-        'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://images.unsplash.com/photo-1500595046743-cd271d694d30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 4,
@@ -78,73 +75,69 @@ export default function Blog() {
       readTime: '7 min',
       category: 'Sanidade',
       image:
-        'https://images.unsplash.com/photo-1546026423-cc4642628d2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://images.unsplash.com/photo-1546026423-cc4642628d2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 5,
       title: 'Análise de Mercado: Tendências da Carne Bovina em 2025',
-      excerpt:
-        'Perspectivas e oportunidades para o setor pecuário brasileiro no mercado atual.',
+      excerpt: 'Perspectivas e oportunidades para o setor pecuário brasileiro no mercado atual.',
       author: 'Roberto Lima',
       date: '5 de Agosto, 2025',
       readTime: '4 min',
       category: 'Mercado',
       image:
-        'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 6,
       title: 'Implementação de Sistemas de Gestão: Guia Prático',
-      excerpt:
-        'Passo a passo para digitalizar sua fazenda e otimizar todos os processos.',
+      excerpt: 'Passo a passo para digitalizar sua fazenda e otimizar todos os processos.',
       author: 'Tech Team Horvatti',
       date: '3 de Agosto, 2025',
       readTime: '10 min',
       category: 'Tecnologia',
       image:
-        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+        'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     },
     {
       id: 7,
       title: 'Reprodução Assistida: Novas Técnicas e Resultados',
-      excerpt:
-        'Avanços científicos que estão revolucionando os índices reprodutivos do gado.',
+      excerpt: 'Avanços científicos que estão revolucionando os índices reprodutivos do gado.',
       author: 'Dr. Pedro Alves',
       date: '1 de Agosto, 2025',
       readTime: '9 min',
       category: 'Reprodução',
       image:
-        'https://images.unsplash.com/photo-1582213782179-e0007faf3228?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
-    }
-  ];
+        'https://images.unsplash.com/photo-1582213782179-e0007faf3228?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    },
+  ]
 
   const filteredPosts = posts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory =
-      selectedCategory === 'Todos' || post.category === selectedCategory;
-    return matchesSearch && matchesCategory;
-  });
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesCategory = selectedCategory === 'Todos' || post.category === selectedCategory
+    return matchesSearch && matchesCategory
+  })
 
   const popularPosts = [
     {
       title: '10 Erros Comuns na IATF',
-      views: '12.5k visualizações'
+      views: '12.5k visualizações',
     },
     {
       title: 'Calculadora de Custos Pecuários',
-      views: '9.8k visualizações'
+      views: '9.8k visualizações',
     },
     {
       title: 'Genética Bovina: Guia Completo',
-      views: '8.2k visualizações'
+      views: '8.2k visualizações',
     },
     {
       title: 'Manejo Reprodutivo Eficiente',
-      views: '7.1k visualizações'
-    }
-  ];
+      views: '7.1k visualizações',
+    },
+  ]
 
   return (
     <PageLayout title="Blog">
@@ -163,8 +156,8 @@ export default function Blog() {
               Champ
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Insights, tendências e conhecimento especializado para
-              revolucionar sua gestão pecuária.
+              Insights, tendências e conhecimento especializado para revolucionar sua gestão
+              pecuária.
             </p>
 
             {/* Search and Filter */}
@@ -203,9 +196,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-8">
             <Star className="w-6 h-6 text-yellow-500 mr-2" />
-            <h2 className="text-2xl font-bold text-gray-900">
-              Artigo em Destaque
-            </h2>
+            <h2 className="text-2xl font-bold text-gray-900">Artigo em Destaque</h2>
           </div>
 
           <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-3xl overflow-hidden text-white">
@@ -287,9 +278,7 @@ export default function Blog() {
                         <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-emerald-600 transition-colors cursor-pointer">
                           {post.title}
                         </h3>
-                        <p className="text-gray-600 mb-4 leading-relaxed">
-                          {post.excerpt}
-                        </p>
+                        <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
                         <div className="flex items-center justify-between">
                           <div className="flex items-center text-gray-500 text-sm">
                             <User className="w-4 h-4 mr-1" />
@@ -354,9 +343,7 @@ export default function Blog() {
                       key={index}
                       className="cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors"
                     >
-                      <h4 className="font-medium text-gray-900 mb-1">
-                        {post.title}
-                      </h4>
+                      <h4 className="font-medium text-gray-900 mb-1">{post.title}</h4>
                       <p className="text-sm text-gray-500">{post.views}</p>
                     </div>
                   ))}
@@ -403,5 +390,5 @@ export default function Blog() {
         </div>
       </section>
     </PageLayout>
-  );
+  )
 }

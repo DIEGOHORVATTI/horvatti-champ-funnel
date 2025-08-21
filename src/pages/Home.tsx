@@ -1,99 +1,105 @@
-import { useState } from 'react';
-import PageLayout from '@/react-app/components/PageLayout';
-import { 
-  ArrowRight, 
-  BarChart3, 
-  Shield, 
-  Users, 
-  CheckCircle, 
-  Star, 
+import { useState } from 'react'
+import PageLayout from '@/components/PageLayout'
+import {
+  ArrowRight,
+  BarChart3,
+  Shield,
+  Users,
+  CheckCircle,
+  Star,
   Zap,
   TrendingUp,
   Clock,
   Award,
   Play,
-  X
-} from 'lucide-react';
+  X,
+} from 'lucide-react'
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [currentStep, setCurrentStep] = useState(1);
+  const [email, setEmail] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [showModal, setShowModal] = useState(false)
+  const [currentStep, setCurrentStep] = useState(1)
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+    e.preventDefault()
+    setIsSubmitting(true)
+
     // Simulate API call
     setTimeout(() => {
-      setIsSubmitting(false);
-      setShowModal(true);
-      setEmail('');
-    }, 1500);
-  };
+      setIsSubmitting(false)
+      setShowModal(true)
+      setEmail('')
+    }, 1500)
+  }
 
   const features = [
     {
       icon: BarChart3,
-      title: "25+ Módulos Integrados",
-      description: "Dashboard, BI, Marketplace, Sustentabilidade, Clima, Genética, Financeiro, Estoque, Laboratórios e muito mais em uma plataforma única."
+      title: '25+ Módulos Integrados',
+      description:
+        'Dashboard, BI, Marketplace, Sustentabilidade, Clima, Genética, Financeiro, Estoque, Laboratórios e muito mais em uma plataforma única.',
     },
     {
       icon: Users,
-      title: "Inteligência Artificial",
-      description: "IA integrada em todos os módulos para insights automáticos, previsões precisas e recomendações inteligentes."
+      title: 'Inteligência Artificial',
+      description:
+        'IA integrada em todos os módulos para insights automáticos, previsões precisas e recomendações inteligentes.',
     },
     {
       icon: TrendingUp,
-      title: "Business Intelligence",
-      description: "Analytics avançados, machine learning e relatórios preditivos para decisões estratégicas baseadas em dados."
+      title: 'Business Intelligence',
+      description:
+        'Analytics avançados, machine learning e relatórios preditivos para decisões estratégicas baseadas em dados.',
     },
     {
       icon: Shield,
-      title: "Ecossistema Completo",
-      description: "Do campo ao escritório, da sustentabilidade ao marketplace - tudo integrado em uma única solução robusta."
-    }
-  ];
+      title: 'Ecossistema Completo',
+      description:
+        'Do campo ao escritório, da sustentabilidade ao marketplace - tudo integrado em uma única solução robusta.',
+    },
+  ]
 
   const benefits = [
-    "Aumente a taxa de prenhez em até 45% com IA preditiva",
-    "Reduza custos operacionais em 35% com otimização automática",
-    "Economize 25 horas por semana com automação completa",
-    "Gerencie operações ilimitadas com escalabilidade total",
-    "Marketplace integrado com 500+ fornecedores",
-    "Business Intelligence com insights em tempo real",
-    "Sustentabilidade ESG com monitoramento automático",
-    "Prospecção de leads e CRM integrado"
-  ];
+    'Aumente a taxa de prenhez em até 45% com IA preditiva',
+    'Reduza custos operacionais em 35% com otimização automática',
+    'Economize 25 horas por semana com automação completa',
+    'Gerencie operações ilimitadas com escalabilidade total',
+    'Marketplace integrado com 500+ fornecedores',
+    'Business Intelligence com insights em tempo real',
+    'Sustentabilidade ESG com monitoramento automático',
+    'Prospecção de leads e CRM integrado',
+  ]
 
   const testimonials = [
     {
-      name: "João Silva Santos",
-      role: "Fazenda São João - SP",
-      content: "Desde que implementamos o Horvatti Champ, nossa taxa de prenhez aumentou 40%. A plataforma revolucionou nossa gestão.",
+      name: 'João Silva Santos',
+      role: 'Fazenda São João - SP',
+      content:
+        'Desde que implementamos o Horvatti Champ, nossa taxa de prenhez aumentou 40%. A plataforma revolucionou nossa gestão.',
       rating: 5,
-      animals: "450 animais"
+      animals: '450 animais',
     },
     {
-      name: "Maria Oliveira",
-      role: "Pecuária Moderna Ltda",
-      content: "Excelente sistema! Consigo acompanhar todos os protocolos IATF e ter controle total da reprodução do rebanho.",
+      name: 'Maria Oliveira',
+      role: 'Pecuária Moderna Ltda',
+      content:
+        'Excelente sistema! Consigo acompanhar todos os protocolos IATF e ter controle total da reprodução do rebanho.',
       rating: 5,
-      animals: "800 animais"
+      animals: '800 animais',
     },
     {
-      name: "Dr. Carlos Mendes",
-      role: "Inseminador Certificado",
-      content: "Como técnico, o sistema me conecta com fazendas que precisam dos meus serviços. Uma verdadeira revolução no setor.",
+      name: 'Dr. Carlos Mendes',
+      role: 'Inseminador Certificado',
+      content:
+        'Como técnico, o sistema me conecta com fazendas que precisam dos meus serviços. Uma verdadeira revolução no setor.',
       rating: 5,
-      animals: "15 fazendas atendidas"
-    }
-  ];
+      animals: '15 fazendas atendidas',
+    },
+  ]
 
   return (
     <PageLayout>
-
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 to-green-600/5"></div>
@@ -103,15 +109,23 @@ export default function Home() {
               <Award className="w-4 h-4 mr-2" />
               Plataforma #1 em Gestão Pecuária - Edição 2025
             </div>
-            <h1 className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h1
+              className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Revolucione a
-              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent"> Gestão </span>
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                {' '}
+                Gestão{' '}
+              </span>
               da Sua Fazenda
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              <strong>25+ módulos integrados</strong> em uma única plataforma: Dashboard BI, Marketplace, Sustentabilidade ESG, Clima, Genética, Prospecção de Leads e muito mais. Aumente sua produtividade em até <strong className="text-emerald-600">45%</strong>.
+              <strong>25+ módulos integrados</strong> em uma única plataforma: Dashboard BI,
+              Marketplace, Sustentabilidade ESG, Clima, Genética, Prospecção de Leads e muito mais.
+              Aumente sua produtividade em até <strong className="text-emerald-600">45%</strong>.
             </p>
-            
+
             <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-12">
               <div className="flex gap-3">
                 <input
@@ -136,7 +150,9 @@ export default function Home() {
                   )}
                 </button>
               </div>
-              <p className="text-sm text-gray-500 mt-3">Demonstração gratuita • Sem compromisso • Suporte 24/7</p>
+              <p className="text-sm text-gray-500 mt-3">
+                Demonstração gratuita • Sem compromisso • Suporte 24/7
+              </p>
             </form>
 
             <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600">
@@ -161,17 +177,23 @@ export default function Home() {
       <section id="recursos" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Recursos Que Fazem a <span className="text-emerald-600">Diferença</span>
             </h2>
             <p className="text-xl text-gray-600">
               Tecnologia avançada desenvolvida especificamente para o agronegócio brasileiro
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="group p-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
+              <div
+                key={index}
+                className="group p-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+              >
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
@@ -184,15 +206,22 @@ export default function Home() {
       </section>
 
       {/* Benefits Section */}
-      <section id="beneficios" className="py-20 bg-gradient-to-br from-emerald-900 to-green-800 text-white">
+      <section
+        id="beneficios"
+        className="py-20 bg-gradient-to-br from-emerald-900 to-green-800 text-white"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl lg:text-5xl font-bold mb-8" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <h2
+                className="text-4xl lg:text-5xl font-bold mb-8"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
                 Revolução <span className="text-emerald-300">2025</span>
               </h2>
               <p className="text-xl text-emerald-100 mb-10 leading-relaxed">
-                A plataforma mais avançada do agronegócio mundial. Mais de 15.000 fazendas já adotaram nossa tecnologia revolucionária:
+                A plataforma mais avançada do agronegócio mundial. Mais de 15.000 fazendas já
+                adotaram nossa tecnologia revolucionária:
               </p>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -202,7 +231,7 @@ export default function Home() {
                   </div>
                 ))}
               </div>
-              <button 
+              <button
                 onClick={() => setShowModal(true)}
                 className="mt-10 bg-white text-emerald-900 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
               >
@@ -211,9 +240,9 @@ export default function Home() {
             </div>
             <div className="relative">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8">
-                <img 
-                  src="https://mocha-cdn.com/0198cdf6-4322-782f-b610-bb573a8c6e8f/image.png_7802.png" 
-                  alt="Dashboard Horvatti Champ" 
+                <img
+                  src="https://mocha-cdn.com/0198cdf6-4322-782f-b610-bb573a8c6e8f/image.png_7802.png"
+                  alt="Dashboard Horvatti Champ"
                   className="rounded-xl shadow-2xl w-full h-auto"
                 />
                 <div className="absolute -top-4 -left-4 bg-emerald-400 text-emerald-900 px-4 py-2 rounded-lg font-semibold">
@@ -229,23 +258,31 @@ export default function Home() {
       <section id="depoimentos" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               O Que Nossos <span className="text-emerald-600">Clientes</span> Dizem
             </h2>
             <p className="text-xl text-gray-600">
               Histórias reais de produtores que transformaram seus negócios
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">"{testimonial.content}"</p>
+                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
                 <div className="border-t pt-4">
                   <p className="font-semibold text-gray-900">{testimonial.name}</p>
                   <p className="text-emerald-600 text-sm">{testimonial.role}</p>
@@ -260,20 +297,24 @@ export default function Home() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-emerald-600 to-green-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+          <h2
+            className="text-4xl lg:text-5xl font-bold text-white mb-6"
+            style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+          >
             Pronto Para Revolucionar Sua Fazenda?
           </h2>
           <p className="text-xl text-emerald-100 mb-10">
-            Junte-se a milhares de produtores que já transformaram suas propriedades com nossa tecnologia
+            Junte-se a milhares de produtores que já transformaram suas propriedades com nossa
+            tecnologia
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button 
+            <button
               onClick={() => setShowModal(true)}
               className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center"
             >
               Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
             </button>
-            <button 
+            <button
               onClick={() => setShowModal(true)}
               className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg"
             >
@@ -283,28 +324,26 @@ export default function Home() {
         </div>
       </section>
 
-      
-
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
           <div className="bg-white rounded-2xl max-w-md w-full p-8 relative">
-            <button 
+            <button
               onClick={() => setShowModal(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
             >
               <X className="w-6 h-6" />
             </button>
-            
+
             <div className="text-center">
               <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
-              
+
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                {currentStep === 1 ? "Quase Lá!" : "Sucesso!"}
+                {currentStep === 1 ? 'Quase Lá!' : 'Sucesso!'}
               </h3>
-              
+
               {currentStep === 1 ? (
                 <div>
                   <p className="text-gray-600 mb-6">
@@ -340,7 +379,8 @@ export default function Home() {
               ) : (
                 <div>
                   <p className="text-gray-600 mb-6">
-                    Demonstração liberada! Nossa equipe entrará em contato em até 2 horas para agendar sua apresentação personalizada.
+                    Demonstração liberada! Nossa equipe entrará em contato em até 2 horas para
+                    agendar sua apresentação personalizada.
                   </p>
                   <div className="space-y-3 text-sm text-gray-500">
                     <div className="flex items-center">
@@ -363,5 +403,5 @@ export default function Home() {
         </div>
       )}
     </PageLayout>
-  );
+  )
 }

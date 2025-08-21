@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import PageLayout from '@/react-app/components/PageLayout';
-import { 
-  MessageCircle, 
-  Phone, 
-  Mail, 
-  Clock, 
+import { useState } from 'react'
+import PageLayout from '@/components/PageLayout'
+import {
+  MessageCircle,
+  Phone,
+  Mail,
+  Clock,
   Search,
   ChevronDown,
   CheckCircle,
@@ -15,13 +15,13 @@ import {
   Video,
   Users,
   Send,
-  AlertCircle
-} from 'lucide-react';
+  AlertCircle,
+} from 'lucide-react'
 
 export default function Suporte() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('todos');
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [searchQuery, setSearchQuery] = useState('')
+  const [selectedCategory, setSelectedCategory] = useState('todos')
+  const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,48 +29,48 @@ export default function Suporte() {
     category: '',
     priority: '',
     subject: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+    message: '',
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const supportChannels = [
     {
       icon: MessageCircle,
-      title: "Chat Online",
-      description: "Resposta imediata durante horário comercial",
-      available: "Seg-Sex: 8h às 18h",
-      action: "Iniciar Chat",
-      color: "from-blue-600 to-blue-700",
-      status: "online"
+      title: 'Chat Online',
+      description: 'Resposta imediata durante horário comercial',
+      available: 'Seg-Sex: 8h às 18h',
+      action: 'Iniciar Chat',
+      color: 'from-blue-600 to-blue-700',
+      status: 'online',
     },
     {
       icon: Phone,
-      title: "Telefone",
-      description: "Suporte técnico especializado",
-      available: "(11) 3456-7890",
-      action: "Ligar Agora",
-      color: "from-green-600 to-green-700",
-      status: "available"
+      title: 'Telefone',
+      description: 'Suporte técnico especializado',
+      available: '(11) 3456-7890',
+      action: 'Ligar Agora',
+      color: 'from-green-600 to-green-700',
+      status: 'available',
     },
     {
       icon: Mail,
-      title: "Email",
-      description: "Suporte técnico e comercial",
-      available: "suporte@horvattichamp.com",
-      action: "Enviar Email",
-      color: "from-purple-600 to-purple-700",
-      status: "24h"
+      title: 'Email',
+      description: 'Suporte técnico e comercial',
+      available: 'suporte@horvattichamp.com',
+      action: 'Enviar Email',
+      color: 'from-purple-600 to-purple-700',
+      status: '24h',
     },
     {
       icon: Video,
-      title: "Videoconferência",
-      description: "Suporte com compartilhamento de tela",
-      available: "Agendamento necessário",
-      action: "Agendar",
-      color: "from-red-600 to-red-700",
-      status: "scheduled"
-    }
-  ];
+      title: 'Videoconferência',
+      description: 'Suporte com compartilhamento de tela',
+      available: 'Agendamento necessário',
+      action: 'Agendar',
+      color: 'from-red-600 to-red-700',
+      status: 'scheduled',
+    },
+  ]
 
   const categories = [
     { id: 'todos', name: 'Todos', count: 48 },
@@ -78,102 +78,111 @@ export default function Suporte() {
     { id: 'configuracao', name: 'Configuração', count: 8 },
     { id: 'manejo', name: 'Manejo de Rebanho', count: 15 },
     { id: 'relatorios', name: 'Relatórios', count: 7 },
-    { id: 'mobile', name: 'App Mobile', count: 6 }
-  ];
+    { id: 'mobile', name: 'App Mobile', count: 6 },
+  ]
 
   const faqs = [
     {
       category: 'primeiros-passos',
-      question: "Como faço para começar a usar o Horvatti Champ?",
-      answer: "Após o cadastro, você receberá um email de boas-vindas com seu login. Recomendamos começar com o módulo de Cadastros para inserir os dados dos seus animais, depois partir para o módulo de Manejo para configurar seus protocolos."
+      question: 'Como faço para começar a usar o Horvatti Champ?',
+      answer:
+        'Após o cadastro, você receberá um email de boas-vindas com seu login. Recomendamos começar com o módulo de Cadastros para inserir os dados dos seus animais, depois partir para o módulo de Manejo para configurar seus protocolos.',
     },
     {
       category: 'primeiros-passos',
-      question: "Preciso de equipamentos especiais para usar o sistema?",
-      answer: "Não é obrigatório, mas recomendamos chips para identificação dos animais e leitores para facilitar o trabalho. O sistema funciona perfeitamente apenas com identificação visual também."
+      question: 'Preciso de equipamentos especiais para usar o sistema?',
+      answer:
+        'Não é obrigatório, mas recomendamos chips para identificação dos animais e leitores para facilitar o trabalho. O sistema funciona perfeitamente apenas com identificação visual também.',
     },
     {
       category: 'configuracao',
-      question: "Como configuro protocolos IATF personalizados?",
-      answer: "No módulo Manejo, acesse 'Protocolos' e clique em 'Novo Protocolo'. Você pode criar protocolos personalizados definindo cada etapa, medicamentos e intervalos conforme sua necessidade."
+      question: 'Como configuro protocolos IATF personalizados?',
+      answer:
+        "No módulo Manejo, acesse 'Protocolos' e clique em 'Novo Protocolo'. Você pode criar protocolos personalizados definindo cada etapa, medicamentos e intervalos conforme sua necessidade.",
     },
     {
       category: 'configuracao',
-      question: "Posso importar dados de outros sistemas?",
-      answer: "Sim! Oferecemos importação via planilhas Excel/CSV. Nossa equipe também pode auxiliar na migração de outros sistemas. Entre em contato para agendar."
+      question: 'Posso importar dados de outros sistemas?',
+      answer:
+        'Sim! Oferecemos importação via planilhas Excel/CSV. Nossa equipe também pode auxiliar na migração de outros sistemas. Entre em contato para agendar.',
     },
     {
       category: 'manejo',
-      question: "Como registrar nascimentos no sistema?",
-      answer: "No módulo Nascimentos, clique em 'Registrar Nascimento'. Informe a mãe, data de nascimento e dados do bezerro. O sistema calculará automaticamente os indicadores reprodutivos."
+      question: 'Como registrar nascimentos no sistema?',
+      answer:
+        "No módulo Nascimentos, clique em 'Registrar Nascimento'. Informe a mãe, data de nascimento e dados do bezerro. O sistema calculará automaticamente os indicadores reprodutivos.",
     },
     {
       category: 'manejo',
-      question: "Como funciona o controle de pesagem?",
-      answer: "No módulo Manejo, acesse 'Pesagem'. Você pode registrar manualmente ou integrar com balanças eletrônicas. O sistema calcula automaticamente GPD e gráficos de crescimento."
+      question: 'Como funciona o controle de pesagem?',
+      answer:
+        "No módulo Manejo, acesse 'Pesagem'. Você pode registrar manualmente ou integrar com balanças eletrônicas. O sistema calcula automaticamente GPD e gráficos de crescimento.",
     },
     {
       category: 'relatorios',
-      question: "Quais relatórios estão disponíveis?",
-      answer: "Temos mais de 200 relatórios: reprodutivos, financeiros, genealógicos, sanitários, nutricionais e muito mais. Todos podem ser personalizados e agendados para envio automático."
+      question: 'Quais relatórios estão disponíveis?',
+      answer:
+        'Temos mais de 200 relatórios: reprodutivos, financeiros, genealógicos, sanitários, nutricionais e muito mais. Todos podem ser personalizados e agendados para envio automático.',
     },
     {
       category: 'mobile',
-      question: "O app funciona offline?",
-      answer: "Sim! O app mobile funciona offline e sincroniza automaticamente quando há conexão. Ideal para trabalho em campo onde a internet pode ser instável."
+      question: 'O app funciona offline?',
+      answer:
+        'Sim! O app mobile funciona offline e sincroniza automaticamente quando há conexão. Ideal para trabalho em campo onde a internet pode ser instável.',
     },
     {
       category: 'mobile',
-      question: "Como usar o scanner de chips?",
-      answer: "No app, acesse qualquer módulo que precise identificar um animal e toque no ícone do scanner. Aproxime o dispositivo do chip e os dados serão carregados automaticamente."
-    }
-  ];
+      question: 'Como usar o scanner de chips?',
+      answer:
+        'No app, acesse qualquer módulo que precise identificar um animal e toque no ícone do scanner. Aproxime o dispositivo do chip e os dados serão carregados automaticamente.',
+    },
+  ]
 
   const quickHelp = [
     {
       icon: BookOpen,
-      title: "Central de Ajuda",
-      description: "Tutoriais e guias completos",
-      items: ["Guias de início rápido", "Tutoriais em vídeo", "Documentação completa"]
+      title: 'Central de Ajuda',
+      description: 'Tutoriais e guias completos',
+      items: ['Guias de início rápido', 'Tutoriais em vídeo', 'Documentação completa'],
     },
     {
       icon: Video,
-      title: "Treinamentos",
-      description: "Cursos online e presenciais",
-      items: ["Curso básico gratuito", "Certificação profissional", "Treinamento personalizado"]
+      title: 'Treinamentos',
+      description: 'Cursos online e presenciais',
+      items: ['Curso básico gratuito', 'Certificação profissional', 'Treinamento personalizado'],
     },
     {
       icon: Users,
-      title: "Comunidade",
-      description: "Fórum de usuários",
-      items: ["Dicas de outros usuários", "Casos de sucesso", "Grupos por região"]
-    }
-  ];
+      title: 'Comunidade',
+      description: 'Fórum de usuários',
+      items: ['Dicas de outros usuários', 'Casos de sucesso', 'Grupos por região'],
+    },
+  ]
 
   const stats = [
-    { icon: Clock, number: "< 2h", label: "Tempo Médio de Resposta" },
-    { icon: CheckCircle, number: "98%", label: "Taxa de Resolução" },
-    { icon: Users, number: "24/7", label: "Suporte Disponível" },
-    { icon: Headphones, number: "15+", label: "Especialistas Técnicos" }
-  ];
+    { icon: Clock, number: '< 2h', label: 'Tempo Médio de Resposta' },
+    { icon: CheckCircle, number: '98%', label: 'Taxa de Resolução' },
+    { icon: Users, number: '24/7', label: 'Suporte Disponível' },
+    { icon: Headphones, number: '15+', label: 'Especialistas Técnicos' },
+  ]
 
-  const filteredFaqs = selectedCategory === 'todos' 
-    ? faqs 
-    : faqs.filter(faq => faq.category === selectedCategory);
+  const filteredFaqs =
+    selectedCategory === 'todos' ? faqs : faqs.filter((faq) => faq.category === selectedCategory)
 
-  const searchFilteredFaqs = filteredFaqs.filter(faq =>
-    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const searchFilteredFaqs = filteredFaqs.filter(
+    (faq) =>
+      faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  )
 
   const handleFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
+    e.preventDefault()
+    setIsSubmitting(true)
+
     // Simular envio
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    alert('Ticket criado com sucesso! Em breve nossa equipe entrará em contato.');
+    await new Promise((resolve) => setTimeout(resolve, 2000))
+
+    alert('Ticket criado com sucesso! Em breve nossa equipe entrará em contato.')
     setFormData({
       name: '',
       email: '',
@@ -181,17 +190,19 @@ export default function Suporte() {
       category: '',
       priority: '',
       subject: '',
-      message: ''
-    });
-    setIsSubmitting(false);
-  };
+      message: '',
+    })
+    setIsSubmitting(false)
+  }
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+      [e.target.name]: e.target.value,
+    })
+  }
 
   return (
     <PageLayout title="Suporte">
@@ -203,11 +214,19 @@ export default function Suporte() {
               <Headphones className="w-4 h-4 mr-2" />
               Suporte Especializado 24/7
             </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
-              Como Podemos <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">Ajudar</span> Você?
+            <h1
+              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
+              Como Podemos{' '}
+              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                Ajudar
+              </span>{' '}
+              Você?
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Nossa equipe de especialistas está pronta para resolver suas dúvidas e garantir que você aproveite ao máximo o Horvatti Champ.
+              Nossa equipe de especialistas está pronta para resolver suas dúvidas e garantir que
+              você aproveite ao máximo o Horvatti Champ.
             </p>
 
             {/* Search Bar */}
@@ -248,7 +267,10 @@ export default function Suporte() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Canais de Atendimento
             </h2>
             <p className="text-xl text-gray-600">
@@ -260,25 +282,34 @@ export default function Suporte() {
             {supportChannels.map((channel, index) => (
               <div key={index} className="relative group">
                 <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <channel.icon className="w-8 h-8 text-white" />
                   </div>
-                  
+
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{channel.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{channel.description}</p>
                   <p className="text-sm text-gray-500 mb-6">{channel.available}</p>
-                  
-                  <button className={`w-full bg-gradient-to-r ${channel.color} text-white py-3 rounded-xl hover:shadow-lg transition-all duration-200 font-semibold`}>
+
+                  <button
+                    className={`w-full bg-gradient-to-r ${channel.color} text-white py-3 rounded-xl hover:shadow-lg transition-all duration-200 font-semibold`}
+                  >
                     {channel.action}
                   </button>
 
                   <div className="absolute top-4 right-4">
-                    <div className={`w-3 h-3 rounded-full ${
-                      channel.status === 'online' ? 'bg-green-400' :
-                      channel.status === 'available' ? 'bg-blue-400' :
-                      channel.status === '24h' ? 'bg-purple-400' :
-                      'bg-orange-400'
-                    }`}></div>
+                    <div
+                      className={`w-3 h-3 rounded-full ${
+                        channel.status === 'online'
+                          ? 'bg-green-400'
+                          : channel.status === 'available'
+                          ? 'bg-blue-400'
+                          : channel.status === '24h'
+                          ? 'bg-purple-400'
+                          : 'bg-orange-400'
+                      }`}
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -291,7 +322,10 @@ export default function Suporte() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Recursos de Auto-Atendimento
             </h2>
             <p className="text-xl text-gray-600">
@@ -301,7 +335,10 @@ export default function Suporte() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {quickHelp.map((help, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mb-6">
                   <help.icon className="w-8 h-8 text-white" />
                 </div>
@@ -328,7 +365,10 @@ export default function Suporte() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Perguntas Frequentes
             </h2>
             <p className="text-xl text-gray-600">
@@ -365,7 +405,11 @@ export default function Suporte() {
                     <HelpCircle className="w-6 h-6 text-emerald-600 mr-4 flex-shrink-0" />
                     <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
                   </div>
-                  <ChevronDown className={`w-5 h-5 text-gray-500 transition-transform ${openFaq === index ? 'rotate-180' : ''}`} />
+                  <ChevronDown
+                    className={`w-5 h-5 text-gray-500 transition-transform ${
+                      openFaq === index ? 'rotate-180' : ''
+                    }`}
+                  />
                 </button>
                 {openFaq === index && (
                   <div className="px-6 pb-6">
@@ -382,7 +426,9 @@ export default function Suporte() {
             <div className="text-center py-12">
               <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
               <p className="text-xl text-gray-600 mb-2">Nenhuma resposta encontrada</p>
-              <p className="text-gray-500">Tente usar palavras-chave diferentes ou entre em contato conosco.</p>
+              <p className="text-gray-500">
+                Tente usar palavras-chave diferentes ou entre em contato conosco.
+              </p>
             </div>
           )}
         </div>
@@ -392,7 +438,10 @@ export default function Suporte() {
       <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+            <h2
+              className="text-4xl font-bold text-gray-900 mb-6"
+              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+            >
               Criar Ticket de Suporte
             </h2>
             <p className="text-xl text-gray-600">
@@ -404,7 +453,9 @@ export default function Suporte() {
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Nome Completo*</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Nome Completo*
+                  </label>
                   <input
                     type="text"
                     name="name"
@@ -439,7 +490,9 @@ export default function Suporte() {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Categoria*</label>
+                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    Categoria*
+                  </label>
                   <select
                     name="category"
                     value={formData.category}
@@ -458,7 +511,9 @@ export default function Suporte() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Prioridade*</label>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  Prioridade*
+                </label>
                 <select
                   name="priority"
                   value={formData.priority}
@@ -528,7 +583,10 @@ export default function Suporte() {
           <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-3xl p-12 text-center">
             <div className="max-w-3xl mx-auto">
               <Clock className="w-16 h-16 text-white mx-auto mb-6" />
-              <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              <h2
+                className="text-3xl lg:text-4xl font-bold text-white mb-6"
+                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
+              >
                 Horários de Funcionamento
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-white">
@@ -553,5 +611,5 @@ export default function Suporte() {
         </div>
       </section>
     </PageLayout>
-  );
+  )
 }
