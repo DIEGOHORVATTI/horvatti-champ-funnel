@@ -1,4 +1,5 @@
-import { Link } from 'react-router';
+import { Link } from 'react-router'
+import Logo from './Logo'
 
 export default function Footer() {
   return (
@@ -6,50 +7,25 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <Link to="/" className="flex items-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-emerald-600 to-green-700 rounded-lg flex items-center justify-center">
-                <span
-                  className="text-white font-bold"
-                  style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-                >
-                  HC
-                </span>
-              </div>
-              <span
-                className="text-xl font-bold"
-                style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-              >
-                Horvatti Champ
-              </span>
-            </Link>
-            <p className="text-gray-400">
-              O sistema mais completo para gestão pecuária do Brasil.
-            </p>
+            <Logo />
+
+            <p className="text-gray-400">O sistema mais completo para gestão pecuária do Brasil.</p>
           </div>
           <div>
             <h3 className="font-semibold mb-4">Produto</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link
-                  to="/recursos"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/recursos" className="hover:text-white transition-colors">
                   Recursos
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/precos"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/precos" className="hover:text-white transition-colors">
                   Preços
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/demonstracao"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/demonstracao" className="hover:text-white transition-colors">
                   Demonstração
                 </Link>
               </li>
@@ -59,26 +35,17 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Suporte</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link
-                  to="/central-de-ajuda"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/central-de-ajuda" className="hover:text-white transition-colors">
                   Central de Ajuda
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/contato"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/contato" className="hover:text-white transition-colors">
                   Contato
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/treinamentos"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/treinamentos" className="hover:text-white transition-colors">
                   Treinamentos
                 </Link>
               </li>
@@ -88,10 +55,7 @@ export default function Footer() {
             <h3 className="font-semibold mb-4">Empresa</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
-                <Link
-                  to="/sobre-nos"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/sobre-nos" className="hover:text-white transition-colors">
                   Sobre Nós
                 </Link>
               </li>
@@ -101,10 +65,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/carreiras"
-                  className="hover:text-white transition-colors"
-                >
+                <Link to="/carreiras" className="hover:text-white transition-colors">
                   Carreiras
                 </Link>
               </li>
@@ -112,12 +73,9 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} Horvatti Champ. Todos os direitos
-            reservados.
-          </p>
+          <p>&copy; {new Date().getFullYear()} Horvatti Champ. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
-  );
+  )
 }
