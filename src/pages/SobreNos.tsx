@@ -40,9 +40,9 @@ export default function SobreNos() {
   const team = [
     {
       name: 'Diego Horvatti',
-      role: 'CTO',
+      role: 'Product Owner',
       description:
-        'Engenheira de Software com expertise em sistemas distribuídos e aplicações mobile para o setor rural e bancário.',
+        'Engenheiro de Software com expertise em sistemas distribuídos e soluções para o setor rural e bancário.',
       image:
         'https://media.licdn.com/dms/image/v2/D4D03AQEpDhqdkqSxMA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730906423645?e=1759363200&v=beta&t=V9W1lgmO4TJh4EZ1D6jpdHdi5O4dyesORpDI2JmRNTA',
     },

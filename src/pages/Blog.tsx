@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
-
+import { Link } from 'react-router-dom'
 import {
   Search,
   Calendar,
@@ -147,7 +147,7 @@ export default function Blog() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Blog{' '}
@@ -156,7 +156,7 @@ export default function Blog() {
               </span>{' '}
               Champ
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               Insights, tendências e conhecimento especializado para revolucionar sua gestão
               pecuária.
             </p>
@@ -164,21 +164,21 @@ export default function Blog() {
             {/* Search and Filter */}
             <div className="flex flex-col lg:flex-row gap-4 max-w-2xl mx-auto">
               <div className="relative flex-1">
-                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                 <input
                   type="text"
                   placeholder="Buscar artigos..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg"
+                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg dark:bg-gray-700 dark:text-white transition-colors"
                 />
               </div>
               <div className="relative">
-                <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <Filter className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                 <select
                   value={selectedCategory}
                   onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="pl-12 pr-8 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg bg-white min-w-[200px]"
+                  className="pl-12 pr-8 py-4 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg bg-white dark:bg-gray-700 dark:text-white min-w-[200px] transition-colors"
                 >
                   {categories.map((category) => (
                     <option key={category} value={category}>
@@ -193,11 +193,13 @@ export default function Blog() {
       </section>
 
       {/* Featured Article */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center mb-8">
             <Star className="w-6 h-6 text-yellow-500 mr-2" />
-            <h2 className="text-2xl font-bold text-gray-900">Artigo em Destaque</h2>
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
+              Artigo em Destaque
+            </h2>
           </div>
 
           <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-3xl overflow-hidden text-white">
@@ -224,9 +226,12 @@ export default function Blog() {
                   <Clock className="w-4 h-4 mr-2" />
                   <span>{featuredPost.readTime}</span>
                 </div>
-                <button className="bg-white text-emerald-600 px-6 py-3 rounded-lg hover:bg-emerald-50 transition-all duration-200 font-semibold inline-flex items-center">
+                <Link
+                  to="/demonstracao"
+                  className="bg-white text-emerald-600 px-6 py-3 rounded-lg hover:bg-emerald-50 transition-all duration-200 font-semibold inline-flex items-center"
+                >
                   Ler Artigo <ArrowRight className="w-4 h-4 ml-2" />
-                </button>
+                </Link>
               </div>
               <div className="relative h-64 lg:h-auto">
                 <img
@@ -242,13 +247,13 @@ export default function Blog() {
       </section>
 
       {/* Blog Posts Grid */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
               <h2
-                className="text-3xl font-bold text-gray-900 mb-8"
+                className="text-3xl font-bold text-gray-900 dark:text-white mb-8 transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 {selectedCategory === 'Todos'
@@ -260,7 +265,7 @@ export default function Blog() {
                 {filteredPosts.map((post) => (
                   <article
                     key={post.id}
-                    className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                    className="bg-white dark:bg-gray-900 rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 dark:shadow-emerald-900/10"
                   >
                     <div className="grid grid-cols-1 md:grid-cols-3">
                       <div className="relative h-48 md:h-auto">
@@ -276,12 +281,14 @@ export default function Blog() {
                         </div>
                       </div>
                       <div className="md:col-span-2 p-6">
-                        <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-emerald-600 transition-colors cursor-pointer">
+                        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer">
                           {post.title}
                         </h3>
-                        <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
+                        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed transition-colors">
+                          {post.excerpt}
+                        </p>
                         <div className="flex items-center justify-between">
-                          <div className="flex items-center text-gray-500 text-sm">
+                          <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm transition-colors">
                             <User className="w-4 h-4 mr-1" />
                             <span className="mr-3">{post.author}</span>
                             <Calendar className="w-4 h-4 mr-1" />
@@ -289,9 +296,12 @@ export default function Blog() {
                             <Clock className="w-4 h-4 mr-1" />
                             <span>{post.readTime}</span>
                           </div>
-                          <button className="text-emerald-600 hover:text-emerald-700 font-medium inline-flex items-center">
+                          <Link
+                            to="/demonstracao"
+                            className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium inline-flex items-center transition-colors"
+                          >
                             Ler mais <ArrowRight className="w-4 h-4 ml-1" />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -310,9 +320,9 @@ export default function Blog() {
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Categories */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <BookOpen className="w-5 h-5 mr-2" />
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
+                  <BookOpen className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
                   Categorias
                 </h3>
                 <div className="space-y-2">
@@ -322,8 +332,8 @@ export default function Blog() {
                       onClick={() => setSelectedCategory(category)}
                       className={`block w-full text-left px-3 py-2 rounded-lg transition-colors ${
                         selectedCategory === category
-                          ? 'bg-emerald-100 text-emerald-700'
-                          : 'text-gray-600 hover:bg-gray-100'
+                          ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300'
+                          : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
                       }`}
                     >
                       {category}
@@ -333,19 +343,23 @@ export default function Blog() {
               </div>
 
               {/* Popular Posts */}
-              <div className="bg-white p-6 rounded-2xl shadow-lg">
-                <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
-                  <TrendingUp className="w-5 h-5 mr-2" />
+              <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
+                  <TrendingUp className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
                   Artigos Populares
                 </h3>
                 <div className="space-y-4">
                   {popularPosts.map((post, index) => (
                     <div
                       key={index}
-                      className="cursor-pointer hover:bg-gray-50 p-3 rounded-lg transition-colors"
+                      className="cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 p-3 rounded-lg transition-colors"
                     >
-                      <h4 className="font-medium text-gray-900 mb-1">{post.title}</h4>
-                      <p className="text-sm text-gray-500">{post.views}</p>
+                      <h4 className="font-medium text-gray-900 dark:text-white mb-1 transition-colors">
+                        {post.title}
+                      </h4>
+                      <p className="text-sm text-gray-500 dark:text-gray-400 transition-colors">
+                        {post.views}
+                      </p>
                     </div>
                   ))}
                 </div>
@@ -361,7 +375,7 @@ export default function Blog() {
                   <input
                     type="email"
                     placeholder="Seu e-mail"
-                    className="w-full px-4 py-3 rounded-lg text-gray-900 outline-none focus:ring-2 focus:ring-emerald-300"
+                    className="w-full px-4 py-3 rounded-lg text-gray-900 dark:text-gray-900 outline-none focus:ring-2 focus:ring-emerald-300 dark:bg-white"
                   />
                   <button className="w-full bg-white text-emerald-600 py-3 rounded-lg hover:bg-emerald-50 transition-colors font-semibold">
                     Inscrever-se
@@ -385,9 +399,12 @@ export default function Blog() {
           <p className="text-xl text-emerald-100 mb-10">
             Aplique essas técnicas avançadas na sua fazenda com o Horvatti Champ
           </p>
-          <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center">
+          <Link
+            to="/demonstracao"
+            className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
+          >
             Começar Agora <ArrowRight className="w-5 h-5 ml-2" />
-          </button>
+          </Link>
         </div>
       </section>
     </PageLayout>

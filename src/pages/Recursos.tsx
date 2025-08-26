@@ -1,4 +1,5 @@
 import PageLayout from '@/components/PageLayout'
+import { Link } from 'react-router-dom'
 import {
   BarChart3,
   Users,
@@ -152,12 +153,12 @@ export default function Recursos() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <Database className="w-4 h-4 mr-2" />
               Plataforma Completa 2025
             </div>
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
@@ -165,7 +166,7 @@ export default function Recursos() {
               </span>{' '}
               em Uma Única Plataforma
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               A revolução da gestão pecuária chegou: Dashboard BI, Marketplace, Sustentabilidade
               ESG, Prospecção de Leads, Clima e muito mais integrados.
             </p>
@@ -174,16 +175,16 @@ export default function Recursos() {
       </section>
 
       {/* Main Features */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Módulos Revolucionários 2025
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Os 6 pilares tecnológicos que transformam sua gestão pecuária
             </p>
           </div>
@@ -196,13 +197,19 @@ export default function Recursos() {
                     <feature.icon className="w-8 h-8 text-white" />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-lg text-gray-600 mb-6">{feature.description}</p>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-300 mb-6 transition-colors">
+                      {feature.description}
+                    </p>
                     <ul className="space-y-3">
                       {feature.features.map((item, idx) => (
                         <li key={idx} className="flex items-center">
-                          <CheckCircle className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
-                          <span className="text-gray-700">{item}</span>
+                          <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-3 flex-shrink-0 transition-colors" />
+                          <span className="text-gray-700 dark:text-gray-300 transition-colors">
+                            {item}
+                          </span>
                         </li>
                       ))}
                     </ul>
@@ -215,16 +222,16 @@ export default function Recursos() {
       </section>
 
       {/* Complete Modules Grid */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Todos os 25+ Módulos Disponíveis
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Descubra a amplitude completa da nossa plataforma integrada
             </p>
           </div>
@@ -233,13 +240,17 @@ export default function Recursos() {
             {allModules.map((module, index) => (
               <div
                 key={index}
-                className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center"
+                className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center dark:shadow-emerald-900/10"
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <module.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-base font-bold text-gray-900 mb-2">{module.title}</h3>
-                <p className="text-sm text-gray-600">{module.description}</p>
+                <h3 className="text-base font-bold text-gray-900 dark:text-white mb-2 transition-colors">
+                  {module.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300 transition-colors">
+                  {module.description}
+                </p>
               </div>
             ))}
           </div>
@@ -247,16 +258,16 @@ export default function Recursos() {
       </section>
 
       {/* Integrations */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Integrações Disponíveis
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Conecte o Horvatti Champ com seus equipamentos existentes
             </p>
           </div>
@@ -265,12 +276,16 @@ export default function Recursos() {
             {integrations.map((integration, index) => (
               <div
                 key={index}
-                className="flex items-center p-6 border border-emerald-100 rounded-2xl hover:shadow-lg transition-shadow duration-300"
+                className="flex items-center p-6 border border-emerald-100 dark:border-emerald-900/40 rounded-2xl hover:shadow-lg transition-shadow duration-300 dark:bg-gray-800"
               >
                 <div className="w-3 h-3 bg-emerald-600 rounded-full mr-4 flex-shrink-0"></div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{integration.name}</h3>
-                  <p className="text-gray-600">{integration.description}</p>
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
+                    {integration.name}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors">
+                    {integration.description}
+                  </p>
                 </div>
               </div>
             ))}
@@ -290,9 +305,12 @@ export default function Recursos() {
           <p className="text-xl text-emerald-100 mb-10">
             14 dias de acesso completo, sem compromisso
           </p>
-          <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center">
+          <Link
+            to="/demonstracao"
+            className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
+          >
             Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
-          </button>
+          </Link>
         </div>
       </section>
     </PageLayout>
