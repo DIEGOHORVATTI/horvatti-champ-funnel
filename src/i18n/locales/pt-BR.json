@@ -23,7 +23,16 @@
     "selectHerdSize": "Selecione o tamanho do rebanho",
     "copyright": "Todos os direitos reservados",
     "activateDarkMode": "Ativar modo escuro",
-    "activateLightMode": "Ativar modo claro"
+    "activateLightMode": "Ativar modo claro",
+    "goToHome": "Voltar ao Início",
+    "search": "Buscar",
+    "readTime": "min de leitura",
+    "views": "visualizações",
+    "categories": "Categorias",
+    "allCategories": "Todas as Categorias",
+    "popular": "Popular",
+    "backToTop": "Voltar ao topo",
+    "all": "Todos"
   },
   "navigation": {
     "home": "Home",
@@ -114,39 +123,406 @@
     "aboutUsTitle": "Sobre Nós - Horvatti Champ | Sistema de Gestão Pecuária",
     "aboutUsDescription": "Conheça a história da Horvatti Champ e nossa missão de transformar a pecuária brasileira.",
     "blogTitle": "Blog - Horvatti Champ | Sistema de Gestão Pecuária",
-    "blogDescription": "Fique por dentro das novidades do setor pecuário e dicas de gestão no blog da Horvatti Champ.",
-    "subtitle": "Comece a usar hoje e veja resultados em 30 dias ou seu dinheiro de volta.",
-    "modal": {
-      "almostThere": "Quase Lá!",
-      "success": "Sucesso!",
-      "fillData": "Preencha alguns dados para acessar sua demonstração gratuita:",
-      "fullName": "Nome completo",
-      "accessDemo": "Acessar Demonstração",
-      "demoReleased": "Demonstração liberada! Nossa equipe entrará em contato em até 2 horas para agendar sua apresentação personalizada.",
-      "demoTime": "Demonstração de 30 minutos",
-      "specializedConsulting": "Consultoria especializada",
-      "customSetup": "Setup personalizado",
-      "goToDemo": "Ir para Demonstração"
+    "blogDescription": "Fique por dentro das novidades do setor pecuário e dicas de gestão no blog da Horvatti Champ."
+  },
+  "blog": {
+    "title": "Blog: Conhecimento Pecuário",
+    "subtitle": "Artigos, dicas e novidades sobre gestão pecuária, tecnologia e agronegócio",
+    "searchPlaceholder": "Buscar artigos, tópicos...",
+    "featuredPost": "Artigo em Destaque",
+    "readMore": "Ler Artigo",
+    "latestPosts": "Últimos Artigos",
+    "popularPosts": "Artigos Populares",
+    "author": "Por",
+    "category": "Categoria",
+    "categories": {
+      "all": "Todos",
+      "iatf": "IATF",
+      "reproduction": "Reprodução",
+      "technology": "Tecnologia",
+      "management": "Gestão",
+      "nutrition": "Nutrição",
+      "health": "Sanidade",
+      "market": "Mercado"
+    },
+    "cta": {
+      "title": "Inscreva-se em Nossa Newsletter",
+      "subtitle": "Receba novidades, artigos e dicas diretamente no seu email",
+      "button": "Inscrever-se"
     }
   },
-  "defaultTitle": "Horvatti Champ - Gestão Pecuária Completa",
-  "defaultDescription": "Sistema completo para gestão de pecuária com 25+ módulos integrados. Aumente sua produtividade em até 45% com nossa plataforma.",
-  "homeTitle": "Horvatti Champ - Sistema Completo de Gestão Pecuária",
-  "homeDescription": "Revolucione a gestão da sua fazenda com 25+ módulos integrados. IA, Marketplace, BI, Genética, ESG e muito mais.",
-  "productTitle": "Produto - Horvatti Champ | Sistema de Gestão Pecuária",
-  "productDescription": "Conheça o sistema Horvatti Champ e seus principais recursos para gestão pecuária completa.",
-  "featuresTitle": "Recursos - Horvatti Champ | Sistema de Gestão Pecuária",
-  "featuresDescription": "Explore os recursos avançados do Horvatti Champ: IA, BI, Marketplace, Genética, ESG e muito mais.",
-  "pricingTitle": "Preços - Horvatti Champ | Sistema de Gestão Pecuária",
-  "pricingDescription": "Conheça os planos e preços do sistema Horvatti Champ para gestão pecuária completa.",
-  "demoTitle": "Demonstração - Horvatti Champ | Sistema de Gestão Pecuária",
-  "demoDescription": "Solicite uma demonstração gratuita do sistema Horvatti Champ e veja como podemos transformar sua fazenda.",
-  "supportTitle": "Suporte - Horvatti Champ | Sistema de Gestão Pecuária",
-  "supportDescription": "Suporte especializado 24/7 para o sistema Horvatti Champ. Tire suas dúvidas e obtenha ajuda.",
-  "trainingTitle": "Treinamentos - Horvatti Champ | Sistema de Gestão Pecuária",
-  "trainingDescription": "Treinamentos especializados para maximizar o uso do sistema Horvatti Champ em sua fazenda.",
-  "aboutTitle": "Sobre Nós - Horvatti Champ | Sistema de Gestão Pecuária",
-  "aboutDescription": "Conheça a história e a missão da Horvatti Champ, líder em sistemas de gestão pecuária no Brasil.",
-  "blogTitle": "Blog - Horvatti Champ | Sistema de Gestão Pecuária",
-  "blogDescription": "Artigos, dicas e novidades sobre gestão pecuária, tecnologia e agronegócio."
+  "demo": {
+    "title": "Veja o Horvatti Champ em Ação",
+    "subtitle": "Agende uma demonstração personalizada e descubra como nossa plataforma pode transformar a gestão da sua fazenda.",
+    "benefits": {
+      "title": "Por que agendar uma demonstração?",
+      "personalized": "Demonstração personalizada para seu tipo de operação",
+      "expert": "Especialista dedicado para tirar todas as suas dúvidas",
+      "comprehensive": "Visão completa de todas as funcionalidades",
+      "noCommitment": "Sem compromisso ou obrigações"
+    },
+    "testimonial": {
+      "quote": "A demonstração foi fundamental para entendermos o potencial do sistema. Conseguimos visualizar exatamente como seria implementado em nossa fazenda.",
+      "author": "Carlos Mendes, Fazenda Boa Vista"
+    },
+    "form": {
+      "title": "Agende Sua Demonstração",
+      "name": "Nome completo",
+      "email": "Email",
+      "phone": "Telefone/WhatsApp",
+      "company": "Nome da Fazenda/Empresa",
+      "animals": "Número de animais",
+      "date": "Data preferencial",
+      "time": "Horário preferencial",
+      "button": "Agendar Demonstração",
+      "error": "Erro ao agendar demonstração",
+      "connectionError": "Erro de conexão. Tente novamente."
+    },
+    "success": {
+      "title": "Demonstração Agendada!",
+      "message": "Perfeito! Sua demonstração foi agendada com sucesso. Nossa equipe entrará em contato em breve para confirmar os detalhes.",
+      "details": {
+        "date": "Data",
+        "time": "Horário",
+        "specialist": "Especialista"
+      }
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Transformando a Pecuária Brasileira com Tecnologia",
+      "subtitle": "Conheça nossa história, missão e os valores que guiam a Horvatti Champ"
+    },
+    "mission": {
+      "title": "Nossa Missão",
+      "text": "Transformar a gestão pecuária brasileira, combinando tecnologia de ponta, ciência e uma profunda compreensão das necessidades do campo para criar soluções que realmente façam a diferença no dia a dia do produtor."
+    },
+    "values": {
+      "title": "Nossos Valores",
+      "passion": {
+        "title": "Paixão pelo Agronegócio",
+        "description": "Acreditamos no potencial transformador da tecnologia no campo e trabalhamos com dedicação para criar soluções que realmente fazem a diferença."
+      },
+      "reliability": {
+        "title": "Confiabilidade",
+        "description": "Construímos tecnologia robusta e segura, garantindo que seus dados estejam sempre protegidos e disponíveis quando você precisar."
+      },
+      "innovation": {
+        "title": "Inovação Constante",
+        "description": "Estamos sempre evoluindo nossos produtos com base no feedback dos clientes e nas mais recentes tecnologias disponíveis."
+      },
+      "focus": {
+        "title": "Foco no Cliente",
+        "description": "Cada funcionalidade é pensada para facilitar o dia a dia dos produtores, com interfaces intuitivas e suporte especializado."
+      }
+    },
+    "team": {
+      "title": "Nossa Equipe",
+      "subtitle": "Conheça os especialistas por trás da Horvatti Champ"
+    },
+    "timeline": {
+      "title": "Nossa Trajetória",
+      "subtitle": "A evolução da Horvatti Champ ao longo dos anos"
+    },
+    "cta": {
+      "title": "Junte-se à Revolução Pecuária",
+      "subtitle": "Faça parte da transformação digital do agronegócio brasileiro",
+      "button": "Começar Agora"
+    }
+  },
+  "features": {
+    "hero": {
+      "title": "Recursos Que Transformam Sua Operação",
+      "subtitle": "Conheça os recursos que tornam o Horvatti Champ a plataforma mais completa para gestão pecuária"
+    },
+    "coreModules": {
+      "title": "Módulos Principais",
+      "subtitle": "Desenvolvidos especificamente para o agronegócio brasileiro"
+    },
+    "modules": {
+      "dashboard": {
+        "title": "Dashboard & BI",
+        "description": "Business Intelligence com IA integrada",
+        "features": [
+          "Dashboard em tempo real com IA preditiva",
+          "Machine Learning para insights automáticos",
+          "KPIs personalizáveis por módulo",
+          "Alertas inteligentes contextuais"
+        ]
+      },
+      "marketplace": {
+        "title": "Marketplace Integrado",
+        "description": "Marketplace completo de insumos e serviços",
+        "features": [
+          "500+ fornecedores homologados",
+          "Comparação automática de preços",
+          "Gestão de pedidos e entregas",
+          "Histórico de compras e análises"
+        ]
+      },
+      "sustainability": {
+        "title": "Sustentabilidade ESG",
+        "description": "Gestão completa de práticas sustentáveis",
+        "features": [
+          "Monitoramento de pegada de carbono",
+          "Relatórios ESG automatizados",
+          "Certificações ambientais",
+          "Metas ODS integradas"
+        ]
+      },
+      "crm": {
+        "title": "Prospecção & CRM",
+        "description": "Sistema completo de prospecção de leads",
+        "features": [
+          "CRM integrado ao sistema",
+          "Automação de marketing rural",
+          "Pipeline de vendas inteligente",
+          "Análise de conversão avançada"
+        ]
+      },
+      "climate": {
+        "title": "Monitoramento Climático",
+        "description": "Central meteorológica integrada",
+        "features": [
+          "Previsão do tempo hyperlocal",
+          "Alertas climáticos automáticos",
+          "Histórico meteorológico completo",
+          "Planejamento sazonal inteligente"
+        ]
+      },
+      "ai": {
+        "title": "Inteligência Artificial",
+        "description": "IA permeando todos os módulos",
+        "features": [
+          "Predições de prenhez com 95% precisão",
+          "Otimização automática de recursos",
+          "Recomendações personalizadas",
+          "Análises preditivas avançadas"
+        ]
+      }
+    },
+    "allModules": {
+      "title": "Todos os Módulos",
+      "subtitle": "25+ módulos integrados em uma única plataforma"
+    },
+    "integrations": {
+      "title": "Integrações",
+      "subtitle": "Conecte-se com os principais equipamentos e sistemas do mercado",
+      "scales": {
+        "name": "Balanças Eletrônicas",
+        "description": "Integração direta com balanças para pesagem automática"
+      },
+      "chipReaders": {
+        "name": "Leitores de Chip",
+        "description": "Compatível com os principais leitores do mercado"
+      },
+      "milking": {
+        "name": "Sistemas de Ordenha",
+        "description": "Conexão com equipamentos de ordenha robotizada"
+      },
+      "labs": {
+        "name": "Laboratórios",
+        "description": "Recebimento automático de resultados de exames"
+      }
+    },
+    "cta": {
+      "title": "Pronto para Revolucionar sua Fazenda?",
+      "subtitle": "Agende uma demonstração e veja todos os recursos em ação",
+      "button": "Agendar Demonstração"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "title": "Planos Que Cabem No Seu Bolso",
+      "subtitle": "Escolha o plano ideal para o tamanho da sua propriedade. Comece grátis por 14 dias."
+    },
+    "toggleAnnual": "Cobrança Anual",
+    "toggleMonthly": "Cobrança Mensal",
+    "saveText": "Economize até 35%",
+    "plans": {
+      "starter": {
+        "name": "Iniciante",
+        "description": "Perfeito para pequenas propriedades",
+        "limit": "Até 100 animais"
+      },
+      "professional": {
+        "name": "Profissional",
+        "description": "Ideal para médias propriedades",
+        "limit": "Até 500 animais"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "description": "Para grandes operações",
+        "limit": "Animais ilimitados"
+      }
+    },
+    "perMonth": "/mês",
+    "originalPrice": "De",
+    "popular": "Mais Popular",
+    "included": "O que está incluído",
+    "select": "Selecionar Plano",
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "questions": {
+        "cancel": {
+          "question": "Posso cancelar a qualquer momento?",
+          "answer": "Sim, você pode cancelar sua assinatura a qualquer momento. Não há multas ou taxas de cancelamento."
+        },
+        "security": {
+          "question": "Os dados ficam seguros?",
+          "answer": "Absolutamente. Utilizamos criptografia de nível bancário e fazemos backups automáticos diários dos seus dados."
+        },
+        "discount": {
+          "question": "Há desconto para pagamento anual?",
+          "answer": "Sim! Pagando anualmente você economiza até 35% comparado ao plano mensal."
+        },
+        "change": {
+          "question": "Posso mudar de plano depois?",
+          "answer": "Claro! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento."
+        },
+        "trial": {
+          "question": "Há período de teste?",
+          "answer": "Sim, oferecemos 14 dias gratuitos para você testar todas as funcionalidades."
+        },
+        "support": {
+          "question": "O suporte está incluso?",
+          "answer": "Sim, todos os planos incluem suporte. Planos superiores têm suporte prioritário e 24/7."
+        }
+      }
+    },
+    "cta": {
+      "title": "Pronto Para Começar?",
+      "subtitle": "14 dias grátis para testar. Sem cartão de crédito. Sem compromisso.",
+      "startFree": "Começar Gratuitamente",
+      "contact": "Falar com Consultor"
+    }
+  },
+  "product": {
+    "hero": {
+      "title": "A Solução Completa Para Gestão Pecuária",
+      "subtitle": "Conheça a plataforma que está revolucionando a gestão da pecuária no Brasil"
+    },
+    "categories": {
+      "central": "Gestão Central",
+      "operational": "Operacional",
+      "intelligence": "Inteligência & Analytics",
+      "commercial": "Comercial & Marketplace",
+      "sustainability": "Sustentabilidade & Clima"
+    },
+    "modules": {
+      "title": "Módulos Integrados",
+      "subtitle": "Todos os módulos em uma única plataforma"
+    },
+    "features": {
+      "title": "Recursos Principais",
+      "subtitle": "Desenvolvidos para otimizar cada aspecto da sua operação"
+    },
+    "benefits": {
+      "title": "Benefícios Chave",
+      "subtitle": "O que faz o Horvatti Champ ser a escolha ideal"
+    },
+    "testimonials": {
+      "title": "O Que Nossos Clientes Dizem",
+      "subtitle": "Histórias de sucesso de pecuaristas que transformaram sua gestão"
+    },
+    "cta": {
+      "title": "Pronto para Transformar sua Fazenda?",
+      "subtitle": "Agende uma demonstração personalizada e veja o sistema em ação",
+      "button": "Agendar Demonstração Gratuita"
+    }
+  },
+  "support": {
+    "hero": {
+      "title": "Suporte Especializado",
+      "subtitle": "Estamos aqui para ajudar em cada etapa da sua jornada"
+    },
+    "channels": {
+      "chat": {
+        "title": "Chat Online",
+        "description": "Resposta imediata durante horário comercial",
+        "available": "Seg-Sex: 8h às 18h",
+        "action": "Iniciar Chat"
+      },
+      "phone": {
+        "title": "Telefone",
+        "description": "Suporte técnico especializado",
+        "action": "Ligar Agora"
+      },
+      "email": {
+        "title": "Email",
+        "description": "Suporte técnico e comercial",
+        "action": "Enviar Email"
+      },
+      "video": {
+        "title": "Videoconferência",
+        "description": "Suporte com compartilhamento de tela",
+        "available": "Agendamento necessário",
+        "action": "Agendar"
+      }
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "searchPlaceholder": "Buscar dúvidas...",
+      "categories": {
+        "all": "Todos",
+        "gettingStarted": "Primeiros Passos",
+        "configuration": "Configuração",
+        "management": "Manejo de Rebanho",
+        "reports": "Relatórios",
+        "mobile": "App Mobile"
+      }
+    },
+    "form": {
+      "title": "Entre em Contato",
+      "subtitle": "Não encontrou o que procura? Envie sua dúvida",
+      "name": "Nome completo",
+      "email": "Email",
+      "phone": "Telefone/WhatsApp",
+      "category": "Categoria",
+      "priority": "Prioridade",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "button": "Enviar Mensagem"
+    },
+    "stats": {
+      "responseTime": "Tempo Médio de Resposta",
+      "resolution": "Taxa de Resolução",
+      "support": "Suporte Disponível",
+      "experts": "Especialistas Técnicos"
+    }
+  },
+  "training": {
+    "hero": {
+      "title": "Treinamentos Especializados",
+      "subtitle": "Domine todas as funcionalidades do Horvatti Champ com nossos treinamentos exclusivos"
+    },
+    "categories": {
+      "all": "Todos os Cursos",
+      "basic": "Básico",
+      "advanced": "Avançado",
+      "specialized": "Especializado",
+      "certification": "Certificação"
+    },
+    "training": {
+      "duration": "Duração",
+      "format": "Formato",
+      "level": "Nível",
+      "participants": "Participantes",
+      "rating": "Avaliação",
+      "price": "Investimento",
+      "features": "O que você vai aprender",
+      "button": "Inscrever-se"
+    },
+    "stats": {
+      "students": "Alunos Treinados",
+      "certificates": "Certificados Emitidos",
+      "rating": "Avaliação Média",
+      "approval": "Taxa de Aprovação"
+    },
+    "cta": {
+      "title": "Potencialize seus Resultados",
+      "subtitle": "Invista em conhecimento e maximize o retorno do seu sistema",
+      "button": "Ver Todos os Cursos"
+    }
+  }
 }

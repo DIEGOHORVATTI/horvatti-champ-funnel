@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { Link } from 'react-router-dom'
+import useI18n from '@/hooks/useI18n'
 import {
   Search,
   Calendar,
@@ -15,18 +16,19 @@ import {
 } from 'lucide-react'
 
 export default function Blog() {
+  const { t } = useI18n()
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('Todos')
+  const [selectedCategory, setSelectedCategory] = useState(t('common.all'))
 
   const categories = [
-    'Todos',
-    'IATF',
-    'Reprodução',
-    'Tecnologia',
-    'Gestão',
-    'Nutrição',
-    'Sanidade',
-    'Mercado',
+    t('common.all'),
+    t('blog.categories.iatf'),
+    t('blog.categories.reproduction'),
+    t('blog.categories.technology'),
+    t('blog.categories.management'),
+    t('blog.categories.nutrition'),
+    t('blog.categories.health'),
+    t('blog.categories.market'),
   ]
 
   const featuredPost = {
@@ -117,31 +119,32 @@ export default function Blog() {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'Todos' || post.category === selectedCategory
+    const matchesCategory =
+      selectedCategory === t('common.all') || post.category === selectedCategory
     return matchesSearch && matchesCategory
   })
 
   const popularPosts = [
     {
       title: '10 Erros Comuns na IATF',
-      views: '12.5k visualizações',
+      views: `12.5k ${t('common.views')}`,
     },
     {
       title: 'Calculadora de Custos Pecuários',
-      views: '9.8k visualizações',
+      views: `9.8k ${t('common.views')}`,
     },
     {
       title: 'Genética Bovina: Guia Completo',
-      views: '8.2k visualizações',
+      views: `8.2k ${t('common.views')}`,
     },
     {
       title: 'Manejo Reprodutivo Eficiente',
-      views: '7.1k visualizações',
+      views: `7.1k ${t('common.views')}`,
     },
   ]
 
   return (
-    <PageLayout title="Blog">
+    <PageLayout title={t('seo.blogTitle')} description={t('seo.blogDescription')}>
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -150,15 +153,10 @@ export default function Blog() {
               className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Blog{' '}
-              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                Horvatti
-              </span>{' '}
-              Champ
+              {t('blog.title')}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
-              Insights, tendências e conhecimento especializado para revolucionar sua gestão
-              pecuária.
+              {t('blog.subtitle')}
             </p>
 
             {/* Search and Filter */}
@@ -167,7 +165,7 @@ export default function Blog() {
                 <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-500 w-5 h-5" />
                 <input
                   type="text"
-                  placeholder="Buscar artigos..."
+                  placeholder={t('blog.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg dark:bg-gray-700 dark:text-white transition-colors"
@@ -198,7 +196,7 @@ export default function Blog() {
           <div className="flex items-center mb-8">
             <Star className="w-6 h-6 text-yellow-500 mr-2" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
-              Artigo em Destaque
+              {t('blog.featuredArticle')}
             </h2>
           </div>
 
@@ -230,7 +228,7 @@ export default function Blog() {
                   to="/demonstracao"
                   className="bg-white text-emerald-600 px-6 py-3 rounded-lg hover:bg-emerald-50 transition-all duration-200 font-semibold inline-flex items-center"
                 >
-                  Ler Artigo <ArrowRight className="w-4 h-4 ml-2" />
+                  {t('blog.readArticle')} <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
               <div className="relative h-64 lg:h-auto">
@@ -256,9 +254,9 @@ export default function Blog() {
                 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
-                {selectedCategory === 'Todos'
-                  ? 'Últimos Artigos'
-                  : `Artigos sobre ${selectedCategory}`}
+                {selectedCategory === t('common.all')
+                  ? t('blog.latestArticles')
+                  : t('blog.articlesAbout', { category: selectedCategory })}
               </h2>
 
               <div className="space-y-8">
@@ -300,7 +298,7 @@ export default function Blog() {
                             to="/demonstracao"
                             className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium inline-flex items-center transition-colors"
                           >
-                            Ler mais <ArrowRight className="w-4 h-4 ml-1" />
+                            {t('blog.readMore')} <ArrowRight className="w-4 h-4 ml-1" />
                           </Link>
                         </div>
                       </div>
@@ -312,7 +310,7 @@ export default function Blog() {
               {/* Load More */}
               <div className="text-center mt-12">
                 <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all duration-200 font-semibold text-lg inline-flex items-center">
-                  Carregar Mais Artigos <ArrowRight className="w-5 h-5 ml-2" />
+                  {t('blog.loadMoreArticles')} <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
               </div>
             </div>
@@ -323,7 +321,7 @@ export default function Blog() {
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
                   <BookOpen className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  Categorias
+                  {t('blog.categories.title')}
                 </h3>
                 <div className="space-y-2">
                   {categories.slice(1).map((category) => (
@@ -346,7 +344,7 @@ export default function Blog() {
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
                   <TrendingUp className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  Artigos Populares
+                  {t('blog.popularArticles')}
                 </h3>
                 <div className="space-y-4">
                   {popularPosts.map((post, index) => (
@@ -367,18 +365,16 @@ export default function Blog() {
 
               {/* Newsletter */}
               <div className="bg-gradient-to-br from-emerald-600 to-green-600 p-6 rounded-2xl text-white">
-                <h3 className="text-xl font-bold mb-3">Newsletter Semanal</h3>
-                <p className="text-emerald-100 mb-4">
-                  Receba os melhores artigos e novidades do setor pecuário.
-                </p>
+                <h3 className="text-xl font-bold mb-3">{t('blog.weeklyNewsletter')}</h3>
+                <p className="text-emerald-100 mb-4">{t('blog.newsletterText')}</p>
                 <div className="space-y-3">
                   <input
                     type="email"
-                    placeholder="Seu e-mail"
+                    placeholder={t('blog.emailPlaceholder')}
                     className="w-full px-4 py-3 rounded-lg text-gray-900 dark:text-gray-900 outline-none focus:ring-2 focus:ring-emerald-300 dark:bg-white"
                   />
                   <button className="w-full bg-white text-emerald-600 py-3 rounded-lg hover:bg-emerald-50 transition-colors font-semibold">
-                    Inscrever-se
+                    {t('blog.subscribe')}
                   </button>
                 </div>
               </div>
@@ -394,16 +390,14 @@ export default function Blog() {
             className="text-4xl lg:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            Transforme Conhecimento em Resultados
+            {t('blog.cta.title')}
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
-            Aplique essas técnicas avançadas na sua fazenda com o Horvatti Champ
-          </p>
+          <p className="text-xl text-emerald-100 mb-10">{t('blog.cta.subtitle')}</p>
           <Link
             to="/demonstracao"
             className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
           >
-            Começar Agora <ArrowRight className="w-5 h-5 ml-2" />
+            {t('blog.cta.button')} <ArrowRight className="w-5 h-5 ml-2" />
           </Link>
         </div>
       </section>
