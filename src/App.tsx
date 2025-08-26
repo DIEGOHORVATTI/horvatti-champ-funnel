@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import HomePage from '@/pages/Home'
 import Produto from '@/pages/Produto'
@@ -11,9 +11,20 @@ import Blog from '@/pages/Blog'
 import Suporte from '@/pages/Suporte'
 
 import useScrollToTop from '@/hooks/useScrollToTop'
+import { setTag, trackEvent } from '@/utils/clarity'
 
 function AppContent() {
   useScrollToTop()
+
+  const location = useLocation()
+
+  // Track page views when route changes
+  useEffect(() => {
+    // Set a custom tag for the current page path
+    setTag('page_path', location.pathname)
+    // Send a custom page view event
+    trackEvent('page_view')
+  }, [location])
 
   // Inicialização do tema
   useEffect(() => {
