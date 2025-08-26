@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import PageLayout from '@/components/PageLayout'
-import { useI18n } from '@/i18n'
 
 import {
   Calendar,
@@ -19,7 +18,6 @@ import {
 import { HERD_SIZE_OPTIONS } from '@/constants/config'
 
 export default function Demonstracao() {
-  const { t } = useI18n()
   const location = useLocation()
   const [formData, setFormData] = useState({
     name: '',
@@ -93,38 +91,43 @@ export default function Demonstracao() {
 
   if (isSubmitted) {
     return (
-      <PageLayout
-        title={t('seo.demoScheduledTitle')}
-        description={t('seo.demoScheduledDescription')}
-      >
+      <PageLayout title="Demonstração Agendada">
         <div className="min-h-screen flex items-center justify-center py-20">
           <div className="max-w-2xl mx-auto text-center px-4">
             <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center mx-auto mb-8">
               <CheckCircle className="w-10 h-10 text-white" />
             </div>
             <h1
-              className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              {t('demo.success.title')}
+              Demonstração Agendada!
             </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed transition-colors">
-              {t('demo.success.message')}
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 transition-colors">
+              Perfeito! Sua demonstração foi agendada com sucesso. Nossa equipe entrará em contato
+              em breve para confirmar os detalhes.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/"
-                className="py-3 px-6 rounded-xl bg-white border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-50 transition duration-200 font-semibold"
-              >
-                {t('demo.success.returnHome')}
-              </Link>
-              <Link
-                to="/recursos"
-                className="py-3 px-6 rounded-xl bg-emerald-600 text-white hover:bg-emerald-700 transition duration-200 font-semibold"
-              >
-                {t('demo.success.exploreFeatures')}
-              </Link>
+            <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-2xl mb-8 transition-colors">
+              <div className="flex items-center justify-center space-x-8 text-sm text-emerald-800 dark:text-emerald-300 transition-colors">
+                <div className="flex items-center">
+                  <Clock className="w-4 h-4 mr-2" />
+                  30 minutos
+                </div>
+                <div className="flex items-center">
+                  <Users className="w-4 h-4 mr-2" />
+                  Consultoria especializada
+                </div>
+                <div className="flex items-center">
+                  <Zap className="w-4 h-4 mr-2" />
+                  Setup personalizado
+                </div>
+              </div>
             </div>
+            <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all duration-200 font-semibold text-lg">
+              <Link to="/" className="text-white no-underline">
+                Voltar ao Início
+              </Link>
+            </button>
           </div>
         </div>
       </PageLayout>
@@ -132,7 +135,7 @@ export default function Demonstracao() {
   }
 
   return (
-    <PageLayout title={t('seo.demoTitle')} description={t('seo.demoDescription')}>
+    <PageLayout title="Agendar Demonstração">
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -142,14 +145,15 @@ export default function Demonstracao() {
                 className="text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
-                {t('demo.title.part1')}{' '}
+                Veja o{' '}
                 <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                  {t('demo.title.part2')}
+                  Horvatti Champ
                 </span>{' '}
-                {t('demo.title.part3')}
+                em Ação
               </h1>
               <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed transition-colors">
-                {t('demo.subtitle')}
+                Agende uma demonstração personalizada e descubra como nossa plataforma pode
+                transformar a gestão da sua fazenda.
               </p>
 
               <div className="space-y-6 mb-10">
@@ -159,10 +163,11 @@ export default function Demonstracao() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
-                      {t('demo.benefits.time.title')}
+                      30 Minutos de Demonstração
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 transition-colors">
-                      {t('demo.benefits.time.description')}
+                      Apresentação completa das funcionalidades principais e como elas se aplicam ao
+                      seu negócio.
                     </p>
                   </div>
                 </div>
@@ -173,10 +178,11 @@ export default function Demonstracao() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
-                      {t('demo.benefits.consultant.title')}
+                      Consultor Especializado
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 transition-colors">
-                      {t('demo.benefits.consultant.description')}
+                      Nossos especialistas conhecem profundamente a pecuária e podem responder suas
+                      dúvidas específicas.
                     </p>
                   </div>
                 </div>
@@ -187,10 +193,11 @@ export default function Demonstracao() {
                   </div>
                   <div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
-                      {t('demo.benefits.setup.title')}
+                      Setup Personalizado
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300 transition-colors">
-                      {t('demo.benefits.setup.description')}
+                      Orientação sobre como configurar o sistema para as necessidades específicas da
+                      sua propriedade.
                     </p>
                   </div>
                 </div>
@@ -198,24 +205,24 @@ export default function Demonstracao() {
 
               <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-2xl transition-colors">
                 <h3 className="font-bold text-emerald-900 dark:text-emerald-300 mb-3 transition-colors">
-                  {t('demo.whatYouWillSee')}
+                  O que você verá na demonstração:
                 </h3>
                 <ul className="space-y-2 text-emerald-800 dark:text-emerald-400 transition-colors">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 mr-3 flex-shrink-0" />
-                    {t('demo.features.dashboard')}
+                    Dashboard em tempo real
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 mr-3 flex-shrink-0" />
-                    {t('demo.features.iatf')}
+                    Gestão de protocolos IATF
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 mr-3 flex-shrink-0" />
-                    {t('demo.features.reports')}
+                    Relatórios e análises
                   </li>
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 mr-3 flex-shrink-0" />
-                    {t('demo.features.mobile')}
+                    App mobile em funcionamento
                   </li>
                 </ul>
               </div>
@@ -224,7 +231,7 @@ export default function Demonstracao() {
             {/* Right Column - Form */}
             <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl transition-colors">
               <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-colors">
-                {t('demo.scheduleTitle')}
+                Agendar Demonstração
               </h2>
 
               {error && (
@@ -238,7 +245,7 @@ export default function Demonstracao() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.fullName')}
+                      Nome Completo
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -247,7 +254,7 @@ export default function Demonstracao() {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                        placeholder={t('demo.form.namePlaceholder')}
+                        placeholder="Seu nome"
                         required
                       />
                     </div>
@@ -255,7 +262,7 @@ export default function Demonstracao() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.email')}
+                      Email
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -264,7 +271,7 @@ export default function Demonstracao() {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                        placeholder={t('demo.form.emailPlaceholder')}
+                        placeholder="seu@email.com"
                         required
                       />
                     </div>
@@ -274,7 +281,7 @@ export default function Demonstracao() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.whatsapp')}
+                      WhatsApp
                     </label>
                     <div className="relative">
                       <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -283,7 +290,7 @@ export default function Demonstracao() {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                        placeholder={t('demo.form.phonePlaceholder')}
+                        placeholder="(11) 99999-9999"
                         required
                       />
                     </div>
@@ -291,21 +298,21 @@ export default function Demonstracao() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.farm')}
+                      Fazenda/Empresa
                     </label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
-                      placeholder={t('demo.form.farmPlaceholder')}
+                      placeholder="Nome da propriedade"
                     />
                   </div>
                 </div>
 
                 <div>
                   <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                    {t('demo.form.herdSize')}
+                    Tamanho do Rebanho
                   </label>
                   <select
                     value={formData.animals}
@@ -324,7 +331,7 @@ export default function Demonstracao() {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.preferredDate')}
+                      Data Preferida
                     </label>
                     <div className="relative">
                       <Calendar className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -341,7 +348,7 @@ export default function Demonstracao() {
 
                   <div>
                     <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
-                      {t('demo.form.time')}
+                      Horário
                     </label>
                     <select
                       value={formData.time}
@@ -349,7 +356,7 @@ export default function Demonstracao() {
                       className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                       required
                     >
-                      <option value="">{t('demo.form.selectTime')}</option>
+                      <option value="">Selecione o horário</option>
                       {timeSlots.map((time) => (
                         <option key={time} value={time}>
                           {time}
@@ -367,17 +374,17 @@ export default function Demonstracao() {
                   {isLoading ? (
                     <>
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                      {t('demo.form.scheduling')}
+                      Agendando...
                     </>
                   ) : (
                     <>
-                      {t('demo.form.scheduleDemo')} <ArrowRight className="w-5 h-5 ml-2" />
+                      Agendar Demonstração <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
                 </button>
 
                 <p className="text-sm text-gray-600 dark:text-gray-400 text-center transition-colors">
-                  {t('demo.form.footer')}
+                  Demonstração gratuita • Sem compromisso • Consultoria especializada
                 </p>
               </form>
             </div>
