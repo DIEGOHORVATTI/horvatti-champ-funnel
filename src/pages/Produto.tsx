@@ -351,12 +351,12 @@ export default function Produto() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <Cpu className="w-4 h-4 mr-2" />
               Plataforma Mais Avançada de 2025
             </div>
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
@@ -364,7 +364,7 @@ export default function Produto() {
               </span>{' '}
               Integrados em Uma Única Plataforma
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               Do Dashboard Inteligente ao Marketplace, da Gestão Financeira à Sustentabilidade ESG -
               tudo integrado em uma plataforma revolucionária para o agronegócio moderno.
             </p>
@@ -372,7 +372,7 @@ export default function Produto() {
               <button className="bg-gradient-to-r from-emerald-600 to-green-600 text-white px-8 py-4 rounded-xl hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
                 Explorar Plataforma <ArrowRight className="w-5 h-5 ml-2" />
               </button>
-              <button className="border-2 border-emerald-600 text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-600 hover:text-white transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
+              <button className="border-2 border-emerald-600 dark:border-emerald-500 text-emerald-600 dark:text-emerald-400 px-8 py-4 rounded-xl hover:bg-emerald-600 dark:hover:bg-emerald-600/20 hover:text-white transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
                 <Play className="w-5 h-5 mr-2" /> Ver Demonstração Completa
               </button>
             </div>
@@ -395,38 +395,42 @@ export default function Produto() {
       </section>
 
       {/* Platform Overview */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
             <div>
               <h2
-                className="text-4xl font-bold text-gray-900 mb-6"
+                className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
-                A Plataforma Mais Completa do <span className="text-emerald-600">Agronegócio</span>
+                Plataforma Completa Para Cada Fase da Gestão Pecuária
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Desenvolvida com base em mais de 15 anos de experiência no campo, nossa plataforma
-                integra todas as necessidades da pecuária moderna em um sistema único e intuitivo.
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors">
+                Uma solução verdadeiramente completa para fazendas de todos os tamanhos. Módulos
+                perfeitamente integrados que cobrem cada aspecto da gestão pecuária moderna.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-emerald-600 mr-3" />
-                  <span className="text-lg text-gray-700">
+                  <span className="text-lg text-gray-700 dark:text-gray-400">
                     Interface única para todos os módulos
                   </span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-emerald-600 mr-3" />
-                  <span className="text-lg text-gray-700">Dados centralizados e sincronizados</span>
+                  <span className="text-lg text-gray-700 dark:text-gray-400">
+                    Dados centralizados e sincronizados
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-emerald-600 mr-3" />
-                  <span className="text-lg text-gray-700">Inteligência artificial integrada</span>
+                  <span className="text-lg text-gray-700 dark:text-gray-400">
+                    Inteligência artificial integrada
+                  </span>
                 </div>
                 <div className="flex items-center">
                   <CheckCircle className="w-6 h-6 text-emerald-600 mr-3" />
-                  <span className="text-lg text-gray-700">
+                  <span className="text-lg text-gray-700 dark:text-gray-400">
                     Escalável para qualquer tamanho de operação
                   </span>
                 </div>
@@ -449,30 +453,30 @@ export default function Produto() {
       </section>
 
       {/* Modules Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Módulos Completos Por Categoria
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto transition-colors">
               Explore todos os módulos organizados por área de atuação
             </p>
           </div>
 
           {/* Category Tabs */}
-          <div className="flex flex-wrap justify-center mb-12 border-b border-gray-200">
+          <div className="flex flex-wrap justify-center mb-12 border-b border-gray-200 dark:border-gray-700 transition-colors">
             {moduleCategories.map((category) => (
               <button
                 key={category.id}
                 onClick={() => setActiveCategory(category.id)}
                 className={`px-6 py-4 font-semibold text-base transition-all duration-200 border-b-2 flex items-center ${
                   activeCategory === category.id
-                    ? 'text-emerald-600 border-emerald-600'
-                    : 'text-gray-600 border-transparent hover:text-emerald-600'
+                    ? 'text-emerald-600 dark:text-emerald-400 border-emerald-600 dark:border-emerald-400'
+                    : 'text-gray-600 dark:text-gray-400 border-transparent hover:text-emerald-600 dark:hover:text-emerald-400'
                 }`}
               >
                 <category.icon className="w-5 h-5 mr-2" />
@@ -486,17 +490,24 @@ export default function Produto() {
             {modules[activeCategory as keyof typeof modules]?.map((module, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mb-6">
                   <module.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{module.name}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{module.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                  {module.name}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed transition-colors">
+                  {module.description}
+                </p>
                 <ul className="space-y-2">
                   {module.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-sm text-gray-600">
-                      <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
+                    <li
+                      key={idx}
+                      className="flex items-center text-sm text-gray-600 dark:text-gray-400 transition-colors"
+                    >
+                      <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2 flex-shrink-0" />
                       {feature}
                     </li>
                   ))}
@@ -508,16 +519,16 @@ export default function Produto() {
       </section>
 
       {/* Benefits Grid */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Resultados Extraordinários em 2025
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Dados reais dos nossos clientes que já adotaram a plataforma completa
             </p>
           </div>
@@ -526,14 +537,20 @@ export default function Produto() {
             {benefits.map((benefit, index) => (
               <div
                 key={index}
-                className="bg-gradient-to-br from-emerald-50 to-green-50 p-8 rounded-2xl border border-emerald-100 hover:shadow-xl transition-shadow duration-300 text-center"
+                className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 p-8 rounded-2xl border border-emerald-100 dark:border-emerald-800/50 hover:shadow-xl transition-shadow duration-300 text-center"
               >
                 <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
                   <benefit.icon className="w-10 h-10 text-white" />
                 </div>
-                <div className="text-4xl font-bold text-emerald-600 mb-3">{benefit.stats}</div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-3 transition-colors">
+                  {benefit.stats}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-colors">
+                  {benefit.description}
+                </p>
               </div>
             ))}
           </div>
@@ -601,7 +618,7 @@ export default function Produto() {
             Seja um dos primeiros a experimentar a plataforma mais avançada do agronegócio
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
+            <button className="bg-white dark:bg-gray-100 text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 dark:hover:bg-gray-200 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
               Acessar Demonstração Completa <ArrowRight className="w-5 h-5 ml-2" />
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg">
