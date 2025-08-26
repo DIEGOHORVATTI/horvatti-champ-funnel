@@ -1,9 +1,17 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { Check, ArrowRight, Star, Zap, Crown, HelpCircle } from 'lucide-react'
+import CheckoutModal, { PlanType } from '../components/CheckoutModal'
 
 export default function Precos() {
   const [isAnnual, setIsAnnual] = useState(true)
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false)
+  const [selectedPlan, setSelectedPlan] = useState<PlanType | null>(null)
+
+  const handleOpenCheckout = (plan: PlanType) => {
+    setSelectedPlan(plan)
+    setIsCheckoutOpen(true)
+  }
 
   const plans = [
     {
@@ -95,6 +103,13 @@ export default function Precos() {
 
   return (
     <PageLayout title="Preços">
+      <CheckoutModal
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        plan={selectedPlan}
+        isAnnual={isAnnual}
+      />
+
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -230,6 +245,7 @@ export default function Precos() {
                         ? 'bg-white text-emerald-600 hover:bg-emerald-50'
                         : 'bg-emerald-600 text-white hover:bg-emerald-700'
                     }`}
+                    onClick={() => handleOpenCheckout(plan)}
                   >
                     Começar Teste Gratuito
                   </button>
@@ -295,11 +311,12 @@ export default function Precos() {
           >
             Pronto Para Começar?
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
-            30 dias grátis para testar. Sem cartão de crédito. Sem compromisso.
-          </p>
+          <p className="text-xl text-emerald-100 mb-10">30 dias grátis para testar.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">
+            <button
+              className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center"
+              onClick={() => handleOpenCheckout(plans[1])} // Selecionando o plano Profissional por padrão
+            >
               Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
             </button>
             <button className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg">

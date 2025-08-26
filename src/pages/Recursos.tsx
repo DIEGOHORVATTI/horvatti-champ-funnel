@@ -287,9 +287,7 @@ export default function Recursos() {
           >
             Teste Todos os Recursos Gratuitamente
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
-            30 dias de acesso completo, sem compromisso
-          </p>
+          <p className="text-xl text-emerald-100 mb-10">30 dias de acesso completo</p>
           <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center">
             Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
           </button>
