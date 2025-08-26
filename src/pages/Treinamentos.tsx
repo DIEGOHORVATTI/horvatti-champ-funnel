@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
+import { Link } from 'react-router-dom'
 import {
   GraduationCap,
   Monitor,
@@ -233,12 +234,12 @@ export default function Treinamentos() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <GraduationCap className="w-4 h-4 mr-2" />
               Educação Especializada em Tecnologia Pecuária
             </div>
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Maximize Seus{' '}
@@ -247,7 +248,7 @@ export default function Treinamentos() {
               </span>{' '}
               com Treinamento Profissional
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               Aprenda com especialistas e domine todas as funcionalidades do Horvatti Champ para
               revolucionar sua gestão pecuária.
             </p>
@@ -284,16 +285,16 @@ export default function Treinamentos() {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Por Que Escolher Nossos Treinamentos?
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Metodologia comprovada para acelerar seu aprendizado
             </p>
           </div>
@@ -304,8 +305,12 @@ export default function Treinamentos() {
                 <div className="w-20 h-20 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                   <benefit.icon className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-colors">
+                  {benefit.description}
+                </p>
               </div>
             ))}
           </div>
@@ -313,16 +318,16 @@ export default function Treinamentos() {
       </section>
 
       {/* Courses Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Nossos Cursos
             </h2>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 transition-colors">
               Escolha o treinamento ideal para seu nível de experiência
             </p>
 
@@ -335,7 +340,7 @@ export default function Treinamentos() {
                   className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
                     selectedCategory === category.id
                       ? 'bg-emerald-600 text-white'
-                      : 'bg-white text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                      : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors'
                   }`}
                 >
                   {category.name}
@@ -348,7 +353,7 @@ export default function Treinamentos() {
             {filteredTrainings.map((training) => (
               <div
                 key={training.id}
-                className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden"
+                className="bg-white dark:bg-gray-700 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden dark:shadow-emerald-900/10 dark:hover:shadow-emerald-500/50"
               >
                 <div className="relative">
                   <img
@@ -360,36 +365,43 @@ export default function Treinamentos() {
                     <span
                       className={`px-3 py-1 rounded-full text-sm font-semibold ${
                         training.format === 'Online'
-                          ? 'bg-blue-100 text-blue-800'
+                          ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-800 dark:text-blue-300'
                           : training.format === 'Presencial'
-                          ? 'bg-green-100 text-green-800'
-                          : 'bg-purple-100 text-purple-800'
-                      }`}
+                          ? 'bg-green-100 dark:bg-green-900/40 text-green-800 dark:text-green-300'
+                          : 'bg-purple-100 dark:bg-purple-900/40 text-purple-800 dark:text-purple-300'
+                      } transition-colors`}
                     >
                       {training.format}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4">
-                    <span className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700">
+                    <span className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700 dark:text-gray-300 transition-colors">
                       {training.level}
                     </span>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{training.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{training.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                    {training.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed transition-colors">
+                    {training.description}
+                  </p>
 
                   <div className="space-y-2 mb-6">
                     {training.features.slice(0, 3).map((feature, idx) => (
-                      <div key={idx} className="flex items-center text-sm text-gray-600">
-                        <CheckCircle className="w-4 h-4 text-emerald-600 mr-2 flex-shrink-0" />
+                      <div
+                        key={idx}
+                        className="flex items-center text-sm text-gray-600 dark:text-gray-300 transition-colors"
+                      >
+                        <CheckCircle className="w-4 h-4 text-emerald-600 dark:text-emerald-400 mr-2 flex-shrink-0 transition-colors" />
                         {feature}
                       </div>
                     ))}
                   </div>
 
-                  <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                  <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400 mb-4 transition-colors">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-1" />
                       {training.duration}
@@ -405,7 +417,9 @@ export default function Treinamentos() {
                   </div>
 
                   <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-emerald-600">{training.price}</div>
+                    <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 transition-colors">
+                      {training.price}
+                    </div>
                     <button
                       onClick={() => handleEnrollment(training)}
                       className="bg-emerald-600 text-white px-6 py-3 rounded-xl hover:bg-emerald-700 transition-colors font-semibold"
@@ -421,35 +435,44 @@ export default function Treinamentos() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               O Que Nossos Alunos Dizem
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Histórias reais de transformação através do conhecimento
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-8 rounded-2xl">
+              <div
+                key={index}
+                className="bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl transition-colors"
+              >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed transition-colors">
                   "{testimonial.content}"
                 </p>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-emerald-600 text-sm">{testimonial.role}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.course}</p>
+                <div className="border-t border-gray-200 dark:border-gray-700 pt-4 transition-colors">
+                  <p className="font-semibold text-gray-900 dark:text-white transition-colors">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-emerald-600 dark:text-emerald-400 text-sm transition-colors">
+                    {testimonial.role}
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors">
+                    {testimonial.course}
+                  </p>
                 </div>
               </div>
             ))}
@@ -470,15 +493,18 @@ export default function Treinamentos() {
             Comece hoje mesmo com nosso curso introdutório gratuito
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button
-              onClick={() => setShowModal(true)}
+            <Link
+              to="/demonstracao"
               className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center"
             >
               Começar Curso Gratuito <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-            <button className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg">
+            </Link>
+            <Link
+              to="/demonstracao"
+              className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg"
+            >
               Falar com Consultor
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -486,10 +512,10 @@ export default function Treinamentos() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-md w-full p-8 relative transition-colors">
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
             >
               <CheckCircle className="w-6 h-6" />
             </button>
@@ -499,11 +525,11 @@ export default function Treinamentos() {
                 <GraduationCap className="w-8 h-8 text-white" />
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
                 {selectedTraining ? `Inscrição - ${selectedTraining.title}` : 'Explorar Cursos'}
               </h3>
 
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
                 Preencha seus dados para{' '}
                 {selectedTraining
                   ? 'se inscrever no curso'
@@ -515,19 +541,19 @@ export default function Treinamentos() {
                 <input
                   type="text"
                   placeholder="Nome completo"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none dark:bg-gray-700 dark:text-white transition-colors"
                 />
                 <input
                   type="email"
                   placeholder="E-mail"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none dark:bg-gray-700 dark:text-white transition-colors"
                 />
                 <input
                   type="tel"
                   placeholder="WhatsApp"
-                  className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none dark:bg-gray-700 dark:text-white transition-colors"
                 />
-                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none">
+                <select className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none dark:bg-gray-700 dark:text-white transition-colors">
                   <option>Nível de experiência</option>
                   <option>Iniciante</option>
                   <option>Intermediário</option>

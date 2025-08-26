@@ -160,7 +160,7 @@ export default function Home() {
             <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600 dark:text-gray-300 transition-colors">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                <span>Setup em 15 minutos</span>
+                <span>Setup em segundos</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
