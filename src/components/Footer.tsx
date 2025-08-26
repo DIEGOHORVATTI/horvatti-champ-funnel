@@ -65,7 +65,12 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/carreiras" className="hover:text-white transition-colors">
+                <Link
+                  to="https://www.linkedin.com/company/digitro-tecnologia/posts/?feedView=all"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   Carreiras
                 </Link>
               </li>
