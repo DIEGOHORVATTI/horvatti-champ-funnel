@@ -58,40 +58,41 @@ export default function SobreNos() {
 
   const timeline = [
     {
-      year: '2018',
-      title: 'Início da Jornada',
+      year: '1977',
+      title: 'Fundação',
+      description: 'Criação da Dígitro em Florianópolis.',
+    },
+    {
+      year: '1990s',
+      title: 'Expansão',
+      description: 'Crescimento no mercado nacional com soluções em voz, gravação e monitoramento.',
+    },
+    {
+      year: '2000s',
+      title: 'Segurança',
       description:
-        'Fundação da empresa com foco em resolver os desafios reais da pecuária brasileira.',
+        'Lançamento de soluções, usadas em investigações e exportadas para outros países.',
     },
     {
-      year: '2019',
-      title: 'Primeiro Produto',
-      description: 'Lançamento da primeira versão do sistema de gestão pecuária.',
+      year: '2010s',
+      title: 'Diversificação',
+      description: 'Portfólio ampliado em segurança, defesa e inteligência artificial.',
     },
     {
-      year: '2020',
-      title: 'Expansão Nacional',
-      description: 'Alcançamos mais de 1.000 fazendas em todo o Brasil.',
+      year: '2017',
+      title: 'Transformação Digital',
+      description: 'Adaptação ao modelo em nuvem e integração ao ecossistema de startups.',
     },
     {
-      year: '2021',
-      title: 'App Mobile',
-      description: 'Lançamento do aplicativo mobile para trabalho no campo.',
+      year: '2025',
+      title: 'Agronegócio Digital',
+      description: 'Lançamento de solução para modernizar o setor agro no Brasil. "Champ"',
     },
     {
-      year: '2022',
-      title: 'Integrações',
-      description: 'Desenvolvimento de integrações com equipamentos e laboratórios.',
-    },
-    {
-      year: '2023',
-      title: 'IA e Analytics',
-      description: 'Implementação de inteligência artificial para análises preditivas.',
-    },
-    {
-      year: '2024',
-      title: 'Líder de Mercado',
-      description: 'Reconhecidos como a solução #1 em gestão pecuária no Brasil.',
+      year: '2026',
+      title: 'Inovação Sustentável',
+      description:
+        'Expansão das soluções digitais no agronegócio com foco em tecnologia e eficiência.',
     },
   ]
 
