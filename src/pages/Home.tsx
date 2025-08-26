@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import PageLayout from '@/components/PageLayout'
 
 import {
@@ -16,11 +17,19 @@ import {
   X,
 } from 'lucide-react'
 
+import { HERD_SIZE_OPTIONS } from '@/constants/config'
+
 export default function Home() {
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showModal, setShowModal] = useState(false)
-  const [currentStep, setCurrentStep] = useState(1)
+  const [currentStep] = useState(1) // Removed setCurrentStep since we're now navigating directly
+  const [formData, setFormData] = useState({
+    name: '',
+    whatsapp: '',
+    herdSize: '',
+  })
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -363,27 +372,50 @@ export default function Home() {
                   <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
                     Preencha alguns dados para acessar sua demonstração gratuita:
                   </p>
-                  <form className="space-y-4">
+                  <form
+                    className="space-y-4"
+                    onSubmit={(e) => {
+                      e.preventDefault()
+                      if (formData.name && formData.whatsapp && formData.herdSize) {
+                        const params = new URLSearchParams({
+                          name: formData.name,
+                          whatsapp: formData.whatsapp,
+                          herdSize: formData.herdSize,
+                        })
+                        navigate(`/demonstracao?${params.toString()}`)
+                      }
+                    }}
+                  >
                     <input
                       type="text"
                       placeholder="Nome completo"
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
+                      required
                     />
                     <input
                       type="tel"
                       placeholder="WhatsApp"
+                      value={formData.whatsapp}
+                      onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
+                      required
                     />
-                    <select className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors">
-                      <option>Tamanho do rebanho</option>
-                      <option>Até 100 animais</option>
-                      <option>101-500 animais</option>
-                      <option>501-1000 animais</option>
-                      <option>Mais de 1000 animais</option>
+                    <select
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
+                      value={formData.herdSize}
+                      onChange={(e) => setFormData({ ...formData, herdSize: e.target.value })}
+                      required
+                    >
+                      {HERD_SIZE_OPTIONS.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
+                        </option>
+                      ))}
                     </select>
                     <button
-                      type="button"
-                      onClick={() => setCurrentStep(2)}
+                      type="submit"
                       className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 rounded-lg hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold"
                     >
                       Acessar Demonstração <ArrowRight className="w-4 h-4 ml-2 inline" />
@@ -410,6 +442,21 @@ export default function Home() {
                       Setup personalizado
                     </div>
                   </div>
+                  <button
+                    onClick={() => {
+                      // Fechar o modal e ir para a página de demonstração
+                      setShowModal(false)
+                      const params = new URLSearchParams({
+                        name: formData.name,
+                        whatsapp: formData.whatsapp,
+                        herdSize: formData.herdSize,
+                      })
+                      navigate(`/demonstracao?${params.toString()}`)
+                    }}
+                    className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 mt-4 rounded-lg hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold"
+                  >
+                    Ir para Demonstração <ArrowRight className="w-4 h-4 ml-2 inline" />
+                  </button>
                 </div>
               )}
             </div>

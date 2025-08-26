@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useLocation, Link } from 'react-router-dom'
 import PageLayout from '@/components/PageLayout'
 
 import {
@@ -13,9 +14,11 @@ import {
   Zap,
   AlertCircle,
 } from 'lucide-react'
-import type { DemonstrationResponse } from '@/types'
+
+import { HERD_SIZE_OPTIONS } from '@/constants/config'
 
 export default function Demonstracao() {
+  const location = useLocation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,13 +32,31 @@ export default function Demonstracao() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
 
+  useEffect(() => {
+    // Get parameters from URL
+    const params = new URLSearchParams(location.search)
+    const nameParam = params.get('name')
+    const whatsappParam = params.get('whatsapp')
+    const herdSizeParam = params.get('herdSize')
+
+    // Update form if parameters exist
+    if (nameParam || whatsappParam || herdSizeParam) {
+      setFormData((prev) => ({
+        ...prev,
+        name: nameParam || prev.name,
+        phone: whatsappParam || prev.phone,
+        animals: herdSizeParam || prev.animals,
+      }))
+    }
+  }, [location.search])
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
     setError('')
 
     try {
-      const response = await fetch('/api/demonstrations', {
+      const response = await fetch('https://formspree.io/f/xrbagqkr', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -51,12 +72,12 @@ export default function Demonstracao() {
         }),
       })
 
-      const result: DemonstrationResponse = await response.json()
+      const result = await response.json()
 
-      if (result.success) {
+      if (response.ok) {
         setIsSubmitted(true)
       } else {
-        setError(result.message || 'Erro ao agendar demonstração')
+        setError(result.error || 'Erro ao agendar demonstração')
       }
     } catch (err) {
       console.error('Error submitting form:', err)
@@ -103,7 +124,9 @@ export default function Demonstracao() {
               </div>
             </div>
             <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all duration-200 font-semibold text-lg">
-              Voltar ao Início
+              <Link to="/" className="text-white no-underline">
+                Voltar ao Início
+              </Link>
             </button>
           </div>
         </div>
@@ -297,12 +320,11 @@ export default function Demonstracao() {
                     className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                     required
                   >
-                    <option value="">Selecione o tamanho</option>
-                    <option value="1-50">1 a 50 animais</option>
-                    <option value="51-100">51 a 100 animais</option>
-                    <option value="101-500">101 a 500 animais</option>
-                    <option value="501-1000">501 a 1000 animais</option>
-                    <option value="1000+">Mais de 1000 animais</option>
+                    {HERD_SIZE_OPTIONS.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
