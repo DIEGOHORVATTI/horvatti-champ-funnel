@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { Link } from 'react-router-dom'
-import useI18n from '@/hooks/useI18n'
+import { useI18n } from '@/hooks/useI18n'
 import {
   Search,
   Calendar,
@@ -18,10 +18,10 @@ import {
 export default function Blog() {
   const { t } = useI18n()
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState(t('common.all'))
+  const [selectedCategory, setSelectedCategory] = useState(t('blog.categories.all'))
 
   const categories = [
-    t('common.all'),
+    t('blog.categories.all'),
     t('blog.categories.iatf'),
     t('blog.categories.reproduction'),
     t('blog.categories.technology'),
@@ -119,27 +119,26 @@ export default function Blog() {
     const matchesSearch =
       post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       post.excerpt.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory =
-      selectedCategory === t('common.all') || post.category === selectedCategory
+    const matchesCategory = selectedCategory === 'Todos' || post.category === selectedCategory
     return matchesSearch && matchesCategory
   })
 
   const popularPosts = [
     {
       title: '10 Erros Comuns na IATF',
-      views: `12.5k ${t('common.views')}`,
+      views: '12.5k visualizações',
     },
     {
       title: 'Calculadora de Custos Pecuários',
-      views: `9.8k ${t('common.views')}`,
+      views: '9.8k visualizações',
     },
     {
       title: 'Genética Bovina: Guia Completo',
-      views: `8.2k ${t('common.views')}`,
+      views: '8.2k visualizações',
     },
     {
       title: 'Manejo Reprodutivo Eficiente',
-      views: `7.1k ${t('common.views')}`,
+      views: '7.1k visualizações',
     },
   ]
 
@@ -153,7 +152,20 @@ export default function Blog() {
               className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              {t('blog.title')}
+              {t('blog.title')
+                .split('Conhecimento')
+                .map((part, index) =>
+                  index === 0 ? (
+                    <span key={index}>{part}</span>
+                  ) : (
+                    <span
+                      key={index}
+                      className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent"
+                    >
+                      Conhecimento{part}
+                    </span>
+                  )
+                )}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               {t('blog.subtitle')}
@@ -196,7 +208,7 @@ export default function Blog() {
           <div className="flex items-center mb-8">
             <Star className="w-6 h-6 text-yellow-500 mr-2" />
             <h2 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors">
-              {t('blog.featuredArticle')}
+              {t('blog.featuredPost')}
             </h2>
           </div>
 
@@ -218,7 +230,9 @@ export default function Blog() {
                 </p>
                 <div className="flex items-center text-emerald-200 text-sm mb-8">
                   <User className="w-4 h-4 mr-2" />
-                  <span className="mr-4">{featuredPost.author}</span>
+                  <span className="mr-4">
+                    {t('blog.author')} {featuredPost.author}
+                  </span>
                   <Calendar className="w-4 h-4 mr-2" />
                   <span className="mr-4">{featuredPost.date}</span>
                   <Clock className="w-4 h-4 mr-2" />
@@ -228,7 +242,7 @@ export default function Blog() {
                   to="/demonstracao"
                   className="bg-white text-emerald-600 px-6 py-3 rounded-lg hover:bg-emerald-50 transition-all duration-200 font-semibold inline-flex items-center"
                 >
-                  {t('blog.readArticle')} <ArrowRight className="w-4 h-4 ml-2" />
+                  {t('blog.readMore')} <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
               </div>
               <div className="relative h-64 lg:h-auto">
@@ -254,9 +268,9 @@ export default function Blog() {
                 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
-                {selectedCategory === t('common.all')
-                  ? t('blog.latestArticles')
-                  : t('blog.articlesAbout', { category: selectedCategory })}
+                {selectedCategory === t('blog.categories.all')
+                  ? t('blog.latestPosts')
+                  : `${t('blog.category')} ${selectedCategory}`}
               </h2>
 
               <div className="space-y-8">
@@ -288,7 +302,9 @@ export default function Blog() {
                         <div className="flex items-center justify-between">
                           <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm transition-colors">
                             <User className="w-4 h-4 mr-1" />
-                            <span className="mr-3">{post.author}</span>
+                            <span className="mr-3">
+                              {t('blog.author')} {post.author}
+                            </span>
                             <Calendar className="w-4 h-4 mr-1" />
                             <span className="mr-3">{post.date}</span>
                             <Clock className="w-4 h-4 mr-1" />
@@ -310,7 +326,7 @@ export default function Blog() {
               {/* Load More */}
               <div className="text-center mt-12">
                 <button className="bg-emerald-600 text-white px-8 py-4 rounded-xl hover:bg-emerald-700 transition-all duration-200 font-semibold text-lg inline-flex items-center">
-                  {t('blog.loadMoreArticles')} <ArrowRight className="w-5 h-5 ml-2" />
+                  {t('common.seeMore')} <ArrowRight className="w-5 h-5 ml-2" />
                 </button>
               </div>
             </div>
@@ -321,7 +337,7 @@ export default function Blog() {
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
                   <BookOpen className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  {t('blog.categories.title')}
+                  {t('common.categories')}
                 </h3>
                 <div className="space-y-2">
                   {categories.slice(1).map((category) => (
@@ -344,7 +360,7 @@ export default function Blog() {
               <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center transition-colors">
                   <TrendingUp className="w-5 h-5 mr-2 text-emerald-600 dark:text-emerald-400" />
-                  {t('blog.popularArticles')}
+                  {t('blog.popularPosts')}
                 </h3>
                 <div className="space-y-4">
                   {popularPosts.map((post, index) => (
@@ -365,16 +381,16 @@ export default function Blog() {
 
               {/* Newsletter */}
               <div className="bg-gradient-to-br from-emerald-600 to-green-600 p-6 rounded-2xl text-white">
-                <h3 className="text-xl font-bold mb-3">{t('blog.weeklyNewsletter')}</h3>
-                <p className="text-emerald-100 mb-4">{t('blog.newsletterText')}</p>
+                <h3 className="text-xl font-bold mb-3">{t('blog.cta.title')}</h3>
+                <p className="text-emerald-100 mb-4">{t('blog.cta.subtitle')}</p>
                 <div className="space-y-3">
                   <input
                     type="email"
-                    placeholder={t('blog.emailPlaceholder')}
+                    placeholder={t('common.email')}
                     className="w-full px-4 py-3 rounded-lg text-gray-900 dark:text-gray-900 outline-none focus:ring-2 focus:ring-emerald-300 dark:bg-white"
                   />
                   <button className="w-full bg-white text-emerald-600 py-3 rounded-lg hover:bg-emerald-50 transition-colors font-semibold">
-                    {t('blog.subscribe')}
+                    {t('blog.cta.button')}
                   </button>
                 </div>
               </div>
@@ -390,14 +406,14 @@ export default function Blog() {
             className="text-4xl lg:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            {t('blog.cta.title')}
+            {t('home.cta.title')}
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">{t('blog.cta.subtitle')}</p>
+          <p className="text-xl text-emerald-100 mb-10">{t('home.cta.subtitle')}</p>
           <Link
             to="/demonstracao"
             className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
           >
-            {t('blog.cta.button')} <ArrowRight className="w-5 h-5 ml-2" />
+            {t('common.startNow')} <ArrowRight className="w-5 h-5 ml-2" />
           </Link>
         </div>
       </section>
