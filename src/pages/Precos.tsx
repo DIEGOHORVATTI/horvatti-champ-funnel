@@ -2,18 +2,20 @@ import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
 import { Check, ArrowRight, Star, Zap, Crown, HelpCircle } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import useI18n from '@/hooks/useI18n'
 
 export default function Precos() {
+  const { t, renderHighlightedText } = useI18n()
   const [isAnnual, setIsAnnual] = useState(true)
 
   const plans = [
     {
-      name: 'Iniciante',
-      description: 'Perfeito para pequenas propriedades',
+      name: t('pricing.plans.starter.name'),
+      description: t('pricing.plans.starter.description'),
       icon: Zap,
       price: isAnnual ? 97 : 127,
       originalPrice: isAnnual ? null : 147,
-      limit: 'Até 100 animais',
+      limit: t('pricing.plans.starter.limit'),
       popular: false,
       features: [
         'Dashboard básico',
@@ -25,12 +27,12 @@ export default function Precos() {
       ],
     },
     {
-      name: 'Profissional',
-      description: 'Ideal para médias propriedades',
+      name: t('pricing.plans.professional.name'),
+      description: t('pricing.plans.professional.description'),
       icon: Star,
       price: isAnnual ? 197 : 247,
       originalPrice: isAnnual ? null : 297,
-      limit: 'Até 500 animais',
+      limit: t('pricing.plans.professional.limit'),
       popular: true,
       features: [
         'Tudo do plano Iniciante',
@@ -44,12 +46,12 @@ export default function Precos() {
       ],
     },
     {
-      name: 'Enterprise',
-      description: 'Para grandes operações',
+      name: t('pricing.plans.enterprise.name'),
+      description: t('pricing.plans.enterprise.description'),
       icon: Crown,
       price: isAnnual ? 397 : 497,
       originalPrice: isAnnual ? null : 597,
-      limit: 'Animais ilimitados',
+      limit: t('pricing.plans.enterprise.limit'),
       popular: false,
       features: [
         'Tudo do plano Profissional',
@@ -66,36 +68,33 @@ export default function Precos() {
 
   const faqs = [
     {
-      question: 'Posso cancelar a qualquer momento?',
-      answer:
-        'Sim, você pode cancelar sua assinatura a qualquer momento. Não há multas ou taxas de cancelamento.',
+      question: t('pricing.faq.questions.cancel.question'),
+      answer: t('pricing.faq.questions.cancel.answer'),
     },
     {
-      question: 'Os dados ficam seguros?',
-      answer:
-        'Absolutamente. Utilizamos criptografia de nível bancário e fazemos backups automáticos diários dos seus dados.',
+      question: t('pricing.faq.questions.security.question'),
+      answer: t('pricing.faq.questions.security.answer'),
     },
     {
-      question: 'Há desconto para pagamento anual?',
-      answer: 'Sim! Pagando anualmente você economiza até 35% comparado ao plano mensal.',
+      question: t('pricing.faq.questions.discount.question'),
+      answer: t('pricing.faq.questions.discount.answer'),
     },
     {
-      question: 'Posso mudar de plano depois?',
-      answer: 'Claro! Você pode fazer upgrade ou downgrade do seu plano a qualquer momento.',
+      question: t('pricing.faq.questions.change.question'),
+      answer: t('pricing.faq.questions.change.answer'),
     },
     {
-      question: 'Há período de teste?',
-      answer: 'Sim, oferecemos 14 dias gratuitos para você testar todas as funcionalidades.',
+      question: t('pricing.faq.questions.trial.question'),
+      answer: t('pricing.faq.questions.trial.answer'),
     },
     {
-      question: 'O suporte está incluso?',
-      answer:
-        'Sim, todos os planos incluem suporte. Planos superiores têm suporte prioritário e 24/7.',
+      question: t('pricing.faq.questions.support.question'),
+      answer: t('pricing.faq.questions.support.answer'),
     },
   ]
 
   return (
-    <PageLayout title="Preços">
+    <PageLayout title={t('navigation.pricing')}>
       {/* Hero Section */}
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -104,14 +103,10 @@ export default function Precos() {
               className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Planos Que{' '}
-              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                Cabem
-              </span>{' '}
-              No Seu Bolso
+              {renderHighlightedText('pricing.hero.title', 'Cabem')}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
-              Escolha o plano ideal para o tamanho da sua propriedade. Comece grátis por 14 dias.
+              {t('pricing.hero.subtitle')}
             </p>
 
             <div className="flex items-center justify-center mb-12">
@@ -122,7 +117,7 @@ export default function Precos() {
                     : 'text-gray-600 dark:text-gray-400'
                 } transition-colors`}
               >
-                Mensal
+                {t('pricing.toggleMonthly')}
               </span>
               <button
                 onClick={() => setIsAnnual(!isAnnual)}
@@ -143,11 +138,11 @@ export default function Precos() {
                     : 'text-gray-600 dark:text-gray-400'
                 } transition-colors`}
               >
-                Anual
+                {t('pricing.toggleAnnual')}
               </span>
               {isAnnual && (
                 <span className="ml-3 bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 px-3 py-1 rounded-full text-sm font-semibold transition-colors">
-                  Economize 35%
+                  {t('pricing.saveText')}
                 </span>
               )}
             </div>
@@ -171,7 +166,7 @@ export default function Precos() {
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                     <div className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full text-sm font-bold">
-                      Mais Popular
+                      {t('pricing.popular')}
                     </div>
                   </div>
                 )}
@@ -218,7 +213,7 @@ export default function Precos() {
                           plan.popular ? 'text-emerald-100' : 'text-gray-600 dark:text-gray-300'
                         } transition-colors`}
                       >
-                        /mês
+                        {t('pricing.perMonth')}
                       </span>
                     </div>
                     {plan.originalPrice && (
@@ -227,7 +222,10 @@ export default function Precos() {
                           plan.popular ? 'text-emerald-200' : 'text-gray-500 dark:text-gray-400'
                         } transition-colors`}
                       >
-                        <span className="line-through">R${plan.originalPrice}/mês</span>
+                        <span className="line-through">
+                          R${plan.originalPrice}
+                          {t('pricing.perMonth')}
+                        </span>
                       </div>
                     )}
                     <div
@@ -247,7 +245,7 @@ export default function Precos() {
                         : 'bg-emerald-600 text-white hover:bg-emerald-700'
                     }`}
                   >
-                    Começar Teste Gratuito
+                    {t('common.freeTrial')}
                   </Link>
                 </div>
 
@@ -285,7 +283,7 @@ export default function Precos() {
               className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Perguntas Frequentes
+              {t('pricing.faq.title')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Tire suas dúvidas sobre nossos planos e serviços
@@ -322,23 +320,21 @@ export default function Precos() {
             className="text-4xl lg:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            Pronto Para Começar?
+            {t('pricing.cta.title')}
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
-            14 dias grátis para testar. Sem cartão de crédito. Sem compromisso.
-          </p>
+          <p className="text-xl text-emerald-100 mb-10">{t('pricing.cta.subtitle')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               to="/demonstracao"
               className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center"
             >
-              Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
+              {t('pricing.cta.startFree')} <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
             <Link
               to="/demonstracao"
               className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg inline-block text-center"
             >
-              Falar com Vendas
+              {t('pricing.cta.contact')}
             </Link>
           </div>
         </div>

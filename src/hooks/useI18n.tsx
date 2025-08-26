@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next'
+import React from 'react'
 
 /**
  * Hook para facilitar o acesso às traduções
@@ -33,10 +34,35 @@ export const useI18n = () => {
     return i18n.language
   }
 
+  /**
+   * Renderiza um texto com uma palavra destacada
+   * @param {string} key - Chave de tradução
+   * @param {string} highlightWord - Palavra a ser destacada
+   * @returns {React.ReactNode[]} Array de elementos React
+   */
+  const renderHighlightedText = (key: string, highlightWord: string) => {
+    const text = t(key)
+    const words = text.split(' ')
+
+    return words.map((word, i) => {
+      if (word === highlightWord) {
+        return (
+          <React.Fragment key={i}>
+            <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+              {word}
+            </span>{' '}
+          </React.Fragment>
+        )
+      }
+      return <React.Fragment key={i}>{word} </React.Fragment>
+    })
+  }
+
   return {
     t: translate,
     changeLanguage,
     currentLanguage: getCurrentLanguage(),
+    renderHighlightedText,
   }
 }
 
