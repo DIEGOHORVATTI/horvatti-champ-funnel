@@ -1,5 +1,6 @@
 import PageLayout from '@/components/PageLayout'
 import { Users, Target, Heart, Shield, Zap } from 'lucide-react'
+import { Link } from 'react-router'
 
 export default function SobreNos() {
   const stats = [
@@ -38,36 +39,20 @@ export default function SobreNos() {
 
   const team = [
     {
-      name: 'Dr. Roberto Horvatti',
-      role: 'CEO & Fundador',
-      description:
-        'Veterinário com 20 anos de experiência em reprodução bovina e especialista em tecnologia para agronegócio.',
-      image:
-        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face',
-    },
-    {
-      name: 'Ana Clara Santos',
+      name: 'Diego Horvatti',
       role: 'CTO',
       description:
-        'Engenheira de Software com expertise em sistemas distribuídos e aplicações mobile para o setor rural.',
+        'Engenheira de Software com expertise em sistemas distribuídos e aplicações mobile para o setor rural e bancário.',
       image:
-        'https://images.unsplash.com/photo-1494790108755-2616b612e29f?w=300&h=300&fit=crop&crop=face',
+        'https://media.licdn.com/dms/image/v2/D4D03AQEpDhqdkqSxMA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1730906423645?e=1759363200&v=beta&t=V9W1lgmO4TJh4EZ1D6jpdHdi5O4dyesORpDI2JmRNTA',
     },
     {
-      name: 'Dr. Carlos Mendes',
-      role: 'Head de Produto',
+      name: 'Diogo Jorge',
+      role: 'Backend Developer',
       description:
-        'Zootecnista e especialista em IATF, responsável por traduzir as necessidades do campo em funcionalidades práticas.',
+        'Desenvolvedor fullstack, apaixonado por resolver problemas relacionados à consumo, organização e otimização de dados.',
       image:
-        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face',
-    },
-    {
-      name: 'Marina Costa',
-      role: 'Head de Customer Success',
-      description:
-        'Especialista em relacionamento com clientes e treinamentos técnicos para maximizar o uso da plataforma.',
-      image:
-        'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face',
+        'https://media.licdn.com/dms/image/v2/D4D03AQHF0rH-YrXgxA/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718254990272?e=1759363200&v=beta&t=f5V4l1u6Dj4WY_8R-omaYPh1-5ILPrH-k5Pvg53FjyI',
     },
   ]
 
@@ -117,7 +102,7 @@ export default function SobreNos() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Revolucionando a{' '}
@@ -126,7 +111,7 @@ export default function SobreNos() {
               </span>{' '}
               Brasileira
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               Somos uma empresa brasileira apaixonada por tecnologia e agronegócio, dedicada a
               transformar a gestão pecuária através da inovação.
             </p>
@@ -149,26 +134,28 @@ export default function SobreNos() {
       </section>
 
       {/* Mission Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2
-                className="text-4xl font-bold text-gray-900 mb-6"
+                className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 Nossa Missão
               </h2>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors">
                 Democratizar o acesso à tecnologia de ponta para pecuaristas de todos os portes,
                 oferecendo ferramentas que aumentam a produtividade, reduzem custos e melhoram o
                 bem-estar animal.
               </p>
               <div className="flex items-center space-x-4">
-                <Target className="w-12 h-12 text-emerald-600" />
+                <Target className="w-12 h-12 text-emerald-600 dark:text-emerald-400 transition-colors" />
                 <div>
-                  <h3 className="font-bold text-gray-900">Visão</h3>
-                  <p className="text-gray-600">
+                  <h3 className="font-bold text-gray-900 dark:text-white transition-colors">
+                    Visão
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 transition-colors">
                     Ser a plataforma de gestão pecuária mais utilizada da América Latina.
                   </p>
                 </div>
@@ -178,7 +165,7 @@ export default function SobreNos() {
               <img
                 src="https://images.unsplash.com/photo-1500595046743-cd271d694d30?w=600&h=400&fit=crop"
                 alt="Fazenda"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-2xl shadow-2xl w-full h-auto dark:shadow-emerald-900/10"
               />
             </div>
           </div>
@@ -186,29 +173,35 @@ export default function SobreNos() {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Nossos Valores
             </h2>
-            <p className="text-xl text-gray-600">Os princípios que guiam tudo o que fazemos</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
+              Os princípios que guiam tudo o que fazemos
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {values.map((value, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 dark:shadow-emerald-900/10"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mb-6">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{value.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
+                  {value.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed transition-colors">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
@@ -216,16 +209,16 @@ export default function SobreNos() {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Nossa Equipe
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Profissionais experientes unidos por uma paixão comum
             </p>
           </div>
@@ -240,9 +233,15 @@ export default function SobreNos() {
                     className="w-32 h-32 rounded-full mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">{member.name}</h3>
-                <p className="text-emerald-600 font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 transition-colors">
+                  {member.name}
+                </h3>
+                <p className="text-emerald-600 dark:text-emerald-400 font-semibold mb-3 transition-colors">
+                  {member.role}
+                </p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed transition-colors">
+                  {member.description}
+                </p>
               </div>
             ))}
           </div>
@@ -250,16 +249,16 @@ export default function SobreNos() {
       </section>
 
       {/* Timeline Section */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/30 dark:to-green-900/30 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Nossa Jornada
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Uma história de crescimento e inovação constante
             </p>
           </div>
@@ -277,14 +276,20 @@ export default function SobreNos() {
                   <div
                     className={`w-1/2 ${index % 2 === 0 ? 'pr-8 text-right' : 'pl-8 text-left'}`}
                   >
-                    <div className="bg-white p-6 rounded-2xl shadow-lg">
-                      <div className="text-2xl font-bold text-emerald-600 mb-2">{item.year}</div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{item.title}</h3>
-                      <p className="text-gray-600">{item.description}</p>
+                    <div className="bg-white dark:bg-gray-900 p-6 rounded-2xl shadow-lg dark:shadow-emerald-900/10 transition-colors border border-gray-200 dark:border-gray-700">
+                      <div className="text-2xl font-bold text-emerald-600 dark:text-emerald-400 mb-2 transition-colors">
+                        {item.year}
+                      </div>
+                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                        {item.title}
+                      </h3>
+                      <p className="text-gray-600 dark:text-gray-300 transition-colors">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                   <div className="relative z-10">
-                    <div className="w-6 h-6 bg-emerald-600 rounded-full border-4 border-white"></div>
+                    <div className="w-6 h-6 bg-emerald-600 rounded-full border-4 border-white dark:border-gray-800"></div>
                   </div>
                   <div className="w-1/2"></div>
                 </div>
@@ -306,9 +311,12 @@ export default function SobreNos() {
           <p className="text-xl text-emerald-100 mb-10">
             Junte-se aos milhares de produtores que já escolheram o Horvatti Champ
           </p>
-          <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg">
+          <Link
+            to="/demonstracao"
+            className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg"
+          >
             Começar Agora
-          </button>
+          </Link>
         </div>
       </section>
     </PageLayout>
