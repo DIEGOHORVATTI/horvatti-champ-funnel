@@ -71,7 +71,8 @@
       "completeEcosystemDesc": "Do campo ao escritório, da sustentabilidade ao marketplace - tudo integrado em uma única solução robusta."
     },
     "benefits": {
-      "title": "Benefícios Comprovados",
+      "title": "Revolução",
+      "subtitle": "A plataforma mais avançada do agronegócio mundial. Mais de 15.000 fazendas já adotaram nossa tecnologia revolucionária:",
       "increasePregnancyRate": "Aumente a taxa de prenhez em até 45% com IA preditiva",
       "reduceOperationalCosts": "Reduza custos operacionais em 35% com otimização automática",
       "saveTime": "Economize 25 horas por semana com automação completa",
@@ -79,12 +80,33 @@
       "integratedMarketplace": "Marketplace integrado com 500+ fornecedores",
       "realTimeBI": "Business Intelligence com insights em tempo real",
       "esgSustainability": "Sustentabilidade ESG com monitoramento automático",
-      "leadProspecting": "Prospecção de leads e CRM integrado"
+      "leadProspecting": "Prospecção de leads e CRM integrado",
+      "interface": "Interface Intuitiva",
+      "demoButton": "Ver Demonstração"
     },
     "testimonials": {
       "title": "O Que Nossos Clientes Dizem",
+      "subtitle": "Histórias reais de produtores que transformaram seus negócios",
       "animals": "animais",
-      "farmsServed": "fazendas atendidas"
+      "farmsServed": "fazendas atendidas",
+      "testimonial1": {
+        "name": "João Silva Santos",
+        "role": "Fazenda São João - SP",
+        "content": "Desde que implementamos o Horvatti Champ, nossa taxa de prenhez aumentou 40%. A plataforma revolucionou nossa gestão.",
+        "animals": "450 animais"
+      },
+      "testimonial2": {
+        "name": "Maria Oliveira",
+        "role": "Pecuária Moderna Ltda",
+        "content": "Excelente sistema! Consigo acompanhar todos os protocolos IATF e ter controle total da reprodução do rebanho.",
+        "animals": "800 animais"
+      },
+      "testimonial3": {
+        "name": "Dr. Carlos Mendes",
+        "role": "Inseminador Certificado",
+        "content": "Como técnico, o sistema me conecta com fazendas que precisam dos meus serviços. Uma verdadeira revolução no setor.",
+        "animals": "15 fazendas atendidas"
+      }
     },
     "cta": {
       "title": "Pronto para Transformar sua Fazenda?",

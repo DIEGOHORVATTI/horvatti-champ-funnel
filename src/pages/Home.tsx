@@ -83,28 +83,25 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: 'João Silva Santos',
-      role: 'Fazenda São João - SP',
-      content:
-        'Desde que implementamos o Horvatti Champ, nossa taxa de prenhez aumentou 40%. A plataforma revolucionou nossa gestão.',
+      name: t('home.testimonials.testimonial1.name'),
+      role: t('home.testimonials.testimonial1.role'),
+      content: t('home.testimonials.testimonial1.content'),
       rating: 5,
-      animals: '450 animais',
+      animals: t('home.testimonials.testimonial1.animals'),
     },
     {
-      name: 'Maria Oliveira',
-      role: 'Pecuária Moderna Ltda',
-      content:
-        'Excelente sistema! Consigo acompanhar todos os protocolos IATF e ter controle total da reprodução do rebanho.',
+      name: t('home.testimonials.testimonial2.name'),
+      role: t('home.testimonials.testimonial2.role'),
+      content: t('home.testimonials.testimonial2.content'),
       rating: 5,
-      animals: '800 animais',
+      animals: t('home.testimonials.testimonial2.animals'),
     },
     {
-      name: 'Dr. Carlos Mendes',
-      role: 'Inseminador Certificado',
-      content:
-        'Como técnico, o sistema me conecta com fazendas que precisam dos meus serviços. Uma verdadeira revolução no setor.',
+      name: t('home.testimonials.testimonial3.name'),
+      role: t('home.testimonials.testimonial3.role'),
+      content: t('home.testimonials.testimonial3.content'),
       rating: 5,
-      animals: '15 fazendas atendidas',
+      animals: t('home.testimonials.testimonial3.animals'),
     },
   ]
 
@@ -250,11 +247,10 @@ export default function Home() {
                 className="text-4xl lg:text-5xl font-bold mb-8"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
-                Revolução <span className="text-emerald-300">2025</span>
+                {t('home.benefits.title')} <span className="text-emerald-300">2025</span>
               </h2>
               <p className="text-xl text-emerald-100 mb-10 leading-relaxed">
-                A plataforma mais avançada do agronegócio mundial. Mais de 15.000 fazendas já
-                adotaram nossa tecnologia revolucionária:
+                {t('home.benefits.subtitle')}
               </p>
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
@@ -268,7 +264,7 @@ export default function Home() {
                 onClick={() => setShowModal(true)}
                 className="mt-10 bg-white text-emerald-900 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center"
               >
-                Ver Demonstração <Play className="w-5 h-5 ml-2" />
+                {t('home.benefits.demoButton')} <Play className="w-5 h-5 ml-2" />
               </button>
             </div>
             <div className="relative">
@@ -279,7 +275,7 @@ export default function Home() {
                   className="rounded-xl shadow-2xl w-full h-auto"
                 />
                 <div className="absolute -top-4 -left-4 bg-emerald-400 text-emerald-900 px-4 py-2 rounded-lg font-semibold">
-                  Interface Intuitiva
+                  {t('home.benefits.interface')}
                 </div>
               </div>
             </div>
@@ -298,7 +294,7 @@ export default function Home() {
               {t('home.testimonials.title')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
-              Histórias reais de produtores que transformaram seus negócios
+              {t('home.testimonials.subtitle')}
             </p>
           </div>
 
