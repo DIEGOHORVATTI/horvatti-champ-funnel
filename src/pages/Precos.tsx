@@ -84,7 +84,7 @@ export default function Precos() {
     },
     {
       question: 'Há período de teste?',
-      answer: 'Sim, oferecemos 30 dias gratuitos para você testar todas as funcionalidades.',
+      answer: 'Sim, oferecemos 14 dias gratuitos para você testar todas as funcionalidades.',
     },
     {
       question: 'O suporte está incluso?',
@@ -110,7 +110,7 @@ export default function Precos() {
               No Seu Bolso
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-              Escolha o plano ideal para o tamanho da sua propriedade. Comece grátis por 30 dias.
+              Escolha o plano ideal para o tamanho da sua propriedade. Comece grátis por 14 dias.
             </p>
 
             <div className="flex items-center justify-center mb-12">
@@ -296,7 +296,7 @@ export default function Precos() {
             Pronto Para Começar?
           </h2>
           <p className="text-xl text-emerald-100 mb-10">
-            30 dias grátis para testar. Sem cartão de crédito. Sem compromisso.
+            14 dias grátis para testar. Sem cartão de crédito. Sem compromisso.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center">

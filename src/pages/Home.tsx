@@ -162,7 +162,7 @@ export default function Home() {
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
-                <span>Teste grátis por 30 dias</span>
+                <span>Teste grátis por 14 dias</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
