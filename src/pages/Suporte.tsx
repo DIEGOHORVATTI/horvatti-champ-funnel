@@ -8,10 +8,8 @@ import {
   Search,
   ChevronDown,
   CheckCircle,
-  ArrowRight,
   HelpCircle,
   Headphones,
-  BookOpen,
   Video,
   Users,
   Send,
@@ -135,27 +133,6 @@ export default function Suporte() {
       question: 'Como usar o scanner de chips?',
       answer:
         'No app, acesse qualquer módulo que precise identificar um animal e toque no ícone do scanner. Aproxime o dispositivo do chip e os dados serão carregados automaticamente.',
-    },
-  ]
-
-  const quickHelp = [
-    {
-      icon: BookOpen,
-      title: 'Central de Ajuda',
-      description: 'Tutoriais e guias completos',
-      items: ['Guias de início rápido', 'Tutoriais em vídeo', 'Documentação completa'],
-    },
-    {
-      icon: Video,
-      title: 'Treinamentos',
-      description: 'Cursos online e presenciais',
-      items: ['Curso básico gratuito', 'Certificação profissional', 'Treinamento personalizado'],
-    },
-    {
-      icon: Users,
-      title: 'Comunidade',
-      description: 'Fórum de usuários',
-      items: ['Dicas de outros usuários', 'Casos de sucesso', 'Grupos por região'],
     },
   ]
 
@@ -312,49 +289,6 @@ export default function Suporte() {
                     ></div>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Quick Help Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
-              style={{ fontFamily: 'Space Grotesk, sans-serif' }}
-            >
-              Recursos de Auto-Atendimento
-            </h2>
-            <p className="text-xl text-gray-600">
-              Encontre respostas rapidamente com nossos recursos
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {quickHelp.map((help, index) => (
-              <div
-                key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
-              >
-                <div className="w-16 h-16 bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl flex items-center justify-center mb-6">
-                  <help.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{help.title}</h3>
-                <p className="text-gray-600 mb-6">{help.description}</p>
-                <ul className="space-y-3">
-                  {help.items.map((item, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <CheckCircle className="w-5 h-5 text-emerald-600 mr-3 flex-shrink-0" />
-                      <span className="text-gray-700">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button className="mt-6 w-full border-2 border-emerald-600 text-emerald-600 py-3 rounded-xl hover:bg-emerald-600 hover:text-white transition-all duration-200 font-semibold">
-                  Acessar <ArrowRight className="w-4 h-4 ml-2 inline" />
-                </button>
               </div>
             ))}
           </div>
