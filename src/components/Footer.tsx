@@ -1,7 +1,11 @@
 import { Link } from 'react-router'
 import Logo from './Logo'
+import useI18n from '@/hooks/useI18n'
 
 export default function Footer() {
+  const { t } = useI18n()
+  const currentYear = new Date().getFullYear()
+
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,54 +13,54 @@ export default function Footer() {
           <div className="space-y-4">
             <Logo />
 
-            <p className="text-gray-400">O sistema mais completo para gestão pecuária do Brasil.</p>
+            <p className="text-gray-400">{t('footer.description')}</p>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Produto</h3>
+            <h3 className="font-semibold mb-4">{t('footer.product')}</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link to="/recursos" className="hover:text-white transition-colors">
-                  Recursos
+                  {t('navigation.features')}
                 </Link>
               </li>
               <li>
                 <Link to="/precos" className="hover:text-white transition-colors">
-                  Preços
+                  {t('navigation.pricing')}
                 </Link>
               </li>
               <li>
                 <Link to="/demonstracao" className="hover:text-white transition-colors">
-                  Demonstração
+                  {t('navigation.demo')}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Ajuda</h3>
+            <h3 className="font-semibold mb-4">{t('footer.help')}</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link to="/suporte" className="hover:text-white transition-colors">
-                  Suporte
+                  {t('navigation.support')}
                 </Link>
               </li>
               <li>
                 <Link to="/treinamentos" className="hover:text-white transition-colors">
-                  Treinamentos
+                  {t('navigation.training')}
                 </Link>
               </li>
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold mb-4">Empresa</h3>
+            <h3 className="font-semibold mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2 text-gray-400">
               <li>
                 <Link to="/sobre-nos" className="hover:text-white transition-colors">
-                  Sobre Nós
+                  {t('navigation.aboutUs')}
                 </Link>
               </li>
               <li>
                 <Link to="/blog" className="hover:text-white transition-colors">
-                  Blog
+                  {t('navigation.blog')}
                 </Link>
               </li>
               <li>
@@ -66,14 +70,16 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="hover:text-white transition-colors"
                 >
-                  Carreiras
+                  {t('navigation.careers')}
                 </Link>
               </li>
             </ul>
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Horvatti Champ. Todos os direitos reservados.</p>
+          <p>
+            &copy; {currentYear} Horvatti Champ. {t('common.copyright')}
+          </p>
         </div>
       </div>
     </footer>

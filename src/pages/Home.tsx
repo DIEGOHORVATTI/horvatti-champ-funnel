@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageLayout from '@/components/PageLayout'
+import useI18n from '@/hooks/useI18n'
 
 import {
   ArrowRight,
@@ -20,7 +21,10 @@ import {
 import { HERD_SIZE_OPTIONS } from '@/constants/config'
 
 export default function Home() {
+  const { t } = useI18n()
+
   const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showModal, setShowModal] = useState(false)
@@ -46,39 +50,35 @@ export default function Home() {
   const features = [
     {
       icon: BarChart3,
-      title: '25+ Módulos Integrados',
-      description:
-        'Dashboard, BI, Marketplace, Sustentabilidade, Clima, Genética, Financeiro, Estoque, Laboratórios e muito mais em uma plataforma única.',
+      title: t('home.features.integratedModules'),
+      description: t('home.features.integratedModulesDesc'),
     },
     {
       icon: Users,
-      title: 'Inteligência Artificial',
-      description:
-        'IA integrada em todos os módulos para insights automáticos, previsões precisas e recomendações inteligentes.',
+      title: t('home.features.artificialIntelligence'),
+      description: t('home.features.artificialIntelligenceDesc'),
     },
     {
       icon: TrendingUp,
-      title: 'Business Intelligence',
-      description:
-        'Analytics avançados, machine learning e relatórios preditivos para decisões estratégicas baseadas em dados.',
+      title: t('home.features.businessIntelligence'),
+      description: t('home.features.businessIntelligenceDesc'),
     },
     {
       icon: Shield,
-      title: 'Ecossistema Completo',
-      description:
-        'Do campo ao escritório, da sustentabilidade ao marketplace - tudo integrado em uma única solução robusta.',
+      title: t('home.features.completeEcosystem'),
+      description: t('home.features.completeEcosystemDesc'),
     },
   ]
 
   const benefits = [
-    'Aumente a taxa de prenhez em até 45% com IA preditiva',
-    'Reduza custos operacionais em 35% com otimização automática',
-    'Economize 25 horas por semana com automação completa',
-    'Gerencie operações ilimitadas com escalabilidade total',
-    'Marketplace integrado com 500+ fornecedores',
-    'Business Intelligence com insights em tempo real',
-    'Sustentabilidade ESG com monitoramento automático',
-    'Prospecção de leads e CRM integrado',
+    t('home.benefits.increasePregnancyRate'),
+    t('home.benefits.reduceOperationalCosts'),
+    t('home.benefits.saveTime'),
+    t('home.benefits.manageUnlimited'),
+    t('home.benefits.integratedMarketplace'),
+    t('home.benefits.realTimeBI'),
+    t('home.benefits.esgSustainability'),
+    t('home.benefits.leadProspecting'),
   ]
 
   const testimonials = [
@@ -109,7 +109,7 @@ export default function Home() {
   ]
 
   return (
-    <PageLayout>
+    <PageLayout title={t('seo.homeTitle')} description={t('seo.homeDescription')}>
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 to-green-600/5 dark:from-emerald-600/10 dark:to-green-600/10"></div>
@@ -117,23 +117,30 @@ export default function Home() {
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <Award className="w-4 h-4 mr-2" />
-              Plataforma #1 em Gestão Pecuária - Edição 2025
+              {t('home.hero.badge')}
             </div>
             <h1
               className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Revolucione a
-              <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
-                {' '}
-                Gestão{' '}
-              </span>
-              da Sua Fazenda
+              {t('home.hero.title')
+                .split('Gestão')
+                .map((part, index) =>
+                  index === 0 ? (
+                    <span key={index}>{part}</span>
+                  ) : (
+                    <span key={index}>
+                      <span className="bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+                        {' '}
+                        Gestão{' '}
+                      </span>
+                      {part}
+                    </span>
+                  )
+                )}
             </h1>
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
-              <strong>25+ módulos integrados</strong> em uma única plataforma: Dashboard BI,
-              Marketplace, Sustentabilidade ESG, Clima, Genética, Prospecção de Leads e muito mais.
-              Aumente sua produtividade em até{' '}
+              <strong>{t('home.hero.description').split('45%')[0]}</strong>
               <strong className="text-emerald-600 dark:text-emerald-400">45%</strong>.
             </p>
 
@@ -143,7 +150,7 @@ export default function Home() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Seu melhor e-mail"
+                  placeholder={t('common.email')}
                   className="flex-1 px-6 py-4 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none text-lg transition-colors"
                   required
                 />
@@ -156,28 +163,28 @@ export default function Home() {
                     <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white"></div>
                   ) : (
                     <>
-                      Começar <ArrowRight className="w-5 h-5 ml-2" />
+                      {t('common.getStarted')} <ArrowRight className="w-5 h-5 ml-2" />
                     </>
                   )}
                 </button>
               </div>
               <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 transition-colors">
-                Demonstração gratuita • Sem compromisso • Suporte 24/7
+                {t('common.freeDemo')} • {t('common.noCommitment')} • {t('common.support247')}
               </p>
             </form>
 
             <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600 dark:text-gray-300 transition-colors">
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                <span>Setup em segundos</span>
+                <span>{t('common.quickSetup')}</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                <span>Teste grátis por 14 dias</span>
+                <span>{t('common.freeTrial')}</span>
               </div>
               <div className="flex items-center">
                 <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
-                <span>Suporte especializado</span>
+                <span>{t('common.expertSupport')}</span>
               </div>
             </div>
           </div>
@@ -192,11 +199,21 @@ export default function Home() {
               className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Recursos Que Fazem a{' '}
-              <span className="text-emerald-600 dark:text-emerald-400">Diferença</span>
+              {t('home.features.title')
+                .split('Diferença')
+                .map((part, index) =>
+                  index === 0 ? (
+                    <span key={index}>{part}</span>
+                  ) : (
+                    <span key={index}>
+                      <span className="text-emerald-600 dark:text-emerald-400">Diferença</span>
+                      {part}
+                    </span>
+                  )
+                )}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
-              Tecnologia avançada desenvolvida especificamente para o agronegócio brasileiro
+              {t('home.features.subtitle')}
             </p>
           </div>
 
@@ -278,8 +295,7 @@ export default function Home() {
               className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              O Que Nossos <span className="text-emerald-600 dark:text-emerald-400">Clientes</span>{' '}
-              Dizem
+              {t('home.testimonials.title')}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Histórias reais de produtores que transformaram seus negócios
@@ -324,24 +340,21 @@ export default function Home() {
             className="text-4xl lg:text-5xl font-bold text-white mb-6"
             style={{ fontFamily: 'Space Grotesk, sans-serif' }}
           >
-            Pronto Para Revolucionar Sua Fazenda?
+            {t('home.cta.title')}
           </h2>
-          <p className="text-xl text-emerald-100 mb-10">
-            Junte-se a milhares de produtores que já transformaram suas propriedades com nossa
-            tecnologia
-          </p>
+          <p className="text-xl text-emerald-100 mb-10">{t('home.cta.subtitle')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={() => setShowModal(true)}
               className="bg-white text-emerald-600 px-8 py-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 font-semibold text-lg inline-flex items-center justify-center"
             >
-              Começar Teste Gratuito <ArrowRight className="w-5 h-5 ml-2" />
+              {t('common.startNow')} <ArrowRight className="w-5 h-5 ml-2" />
             </button>
             <button
               onClick={() => setShowModal(true)}
               className="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-emerald-600 transition-all duration-200 font-semibold text-lg"
             >
-              Agendar Demonstração
+              {t('common.learnMore')}
             </button>
           </div>
         </div>
@@ -364,13 +377,13 @@ export default function Home() {
               </div>
 
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
-                {currentStep === 1 ? 'Quase Lá!' : 'Sucesso!'}
+                {currentStep === 1 ? t('home.modal.almostThere') : t('home.modal.success')}
               </h3>
 
               {currentStep === 1 ? (
                 <div>
                   <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
-                    Preencha alguns dados para acessar sua demonstração gratuita:
+                    {t('home.modal.fillData')}
                   </p>
                   <form
                     className="space-y-4"
@@ -388,7 +401,7 @@ export default function Home() {
                   >
                     <input
                       type="text"
-                      placeholder="Nome completo"
+                      placeholder={t('common.name')}
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
@@ -396,7 +409,7 @@ export default function Home() {
                     />
                     <input
                       type="tel"
-                      placeholder="WhatsApp"
+                      placeholder={t('common.whatsapp')}
                       value={formData.whatsapp}
                       onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
                       className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
@@ -418,28 +431,27 @@ export default function Home() {
                       type="submit"
                       className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 rounded-lg hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold"
                     >
-                      Acessar Demonstração <ArrowRight className="w-4 h-4 ml-2 inline" />
+                      {t('home.modal.accessDemo')} <ArrowRight className="w-4 h-4 ml-2 inline" />
                     </button>
                   </form>
                 </div>
               ) : (
                 <div>
                   <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
-                    Demonstração liberada! Nossa equipe entrará em contato em até 2 horas para
-                    agendar sua apresentação personalizada.
+                    {t('home.modal.demoReleased')}
                   </p>
                   <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 transition-colors">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2" />
-                      Demonstração de 30 minutos
+                      {t('home.modal.demoTime')}
                     </div>
                     <div className="flex items-center">
                       <Users className="w-4 h-4 mr-2" />
-                      Consultoria especializada
+                      {t('home.modal.specializedConsulting')}
                     </div>
                     <div className="flex items-center">
                       <Zap className="w-4 h-4 mr-2" />
-                      Setup personalizado
+                      {t('home.modal.customSetup')}
                     </div>
                   </div>
                   <button
@@ -455,7 +467,7 @@ export default function Home() {
                     }}
                     className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-3 mt-4 rounded-lg hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold"
                   >
-                    Ir para Demonstração <ArrowRight className="w-4 h-4 ml-2 inline" />
+                    {t('home.modal.goToDemo')} <ArrowRight className="w-4 h-4 ml-2 inline" />
                   </button>
                 </div>
               )}

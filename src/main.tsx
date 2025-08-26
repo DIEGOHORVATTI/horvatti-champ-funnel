@@ -4,6 +4,9 @@ import '@/index.css'
 import App from '@/App.tsx'
 import { initClarity } from '@/utils/clarity'
 
+// Import i18n configuration
+import '@/i18n/i18n'
+
 // Initialize Microsoft Clarity
 initClarity()
 

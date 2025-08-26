@@ -5,19 +5,22 @@ import { Menu, X, Sun, Moon } from 'lucide-react'
 import Logo from './Logo'
 import useTheme from '@/hooks/useTheme'
 
+import useI18n from '@/hooks/useI18n'
+
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const location = useLocation()
   const { theme, toggleTheme } = useTheme()
+  const { t } = useI18n()
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Produto', href: '/produto' },
-    { name: 'Recursos', href: '/recursos' },
-    { name: 'Preços', href: '/precos' },
-    { name: 'Demonstração', href: '/demonstracao' },
-    { name: 'Suporte', href: '/suporte' },
-    { name: 'Treinamentos', href: '/treinamentos' },
+    { name: t('navigation.home'), href: '/' },
+    { name: t('navigation.product'), href: '/produto' },
+    { name: t('navigation.features'), href: '/recursos' },
+    { name: t('navigation.pricing'), href: '/precos' },
+    { name: t('navigation.demo'), href: '/demonstracao' },
+    { name: t('navigation.support'), href: '/suporte' },
+    { name: t('navigation.training'), href: '/treinamentos' },
   ]
 
   const isActive = (href: string) => location.pathname === href
@@ -48,7 +51,9 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-              aria-label={theme === 'light' ? 'Ativar modo escuro' : 'Ativar modo claro'}
+              aria-label={
+                theme === 'light' ? t('common.activateDarkMode') : t('common.activateLightMode')
+              }
             >
               {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </button>
@@ -57,7 +62,7 @@ export default function Header() {
               to="/demonstracao"
               className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 font-semibold"
             >
-              Começar Agora
+              {t('common.startNow')}
             </Link>
           </nav>
 
@@ -66,7 +71,9 @@ export default function Header() {
             <button
               onClick={toggleTheme}
               className="p-2 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
-              aria-label={theme === 'light' ? 'Ativar modo escuro' : 'Ativar modo claro'}
+              aria-label={
+                theme === 'light' ? t('common.activateDarkMode') : t('common.activateLightMode')
+              }
             >
               {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
             </button>
@@ -102,7 +109,7 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition-all duration-200 font-semibold text-center"
               >
-                Começar Agora
+                {t('common.startNow')}
               </Link>
             </div>
           </div>
