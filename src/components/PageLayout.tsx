@@ -1,36 +1,38 @@
-import { useEffect } from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import { useEffect } from 'react'
+import Header from './Header'
+import Footer from './Footer'
 
 interface PageLayoutProps {
-  children: React.ReactNode;
-  title?: string;
+  children: React.ReactNode
+  title?: string
 }
 
 export default function PageLayout({ children, title }: PageLayoutProps) {
   useEffect(() => {
     const loadGoogleFonts = () => {
-      const link = document.createElement('link');
-      link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap';
-      link.rel = 'stylesheet';
-      document.head.appendChild(link);
-    };
-    loadGoogleFonts();
-  }, []);
+      const link = document.createElement('link')
+      link.href =
+        'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap'
+      link.rel = 'stylesheet'
+      document.head.appendChild(link)
+    }
+    loadGoogleFonts()
+  }, [])
 
   useEffect(() => {
     if (title) {
-      document.title = `${title} - Horvatti Champ`;
+      document.title = `${title} - Horvatti Champ`
     }
-  }, [title]);
+  }, [title])
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50" style={{ fontFamily: 'Inter, sans-serif' }}>
+    <div
+      className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-green-50 dark:bg-gradient-to-br dark:from-slate-900 dark:via-gray-900 dark:to-slate-800 transition-colors duration-200"
+      style={{ fontFamily: 'Inter, sans-serif' }}
+    >
       <Header />
-      <main>
-        {children}
-      </main>
+      <main>{children}</main>
       <Footer />
     </div>
-  );
+  )
 }

@@ -18,3 +18,56 @@ html {
     scroll-behavior: smooth;
   }
 }
+
+/* Estilos para tema escuro */
+.dark {
+  --bg-primary: #121826;
+  --bg-secondary: #1a2332;
+  --text-primary: #f3f4f6;
+  --text-secondary: #d1d5db;
+  --border-color: #374151;
+  --accent-color: #10b981;
+  color-scheme: dark;
+}
+
+/* Aplicando estilos de tema escuro para componentes específicos */
+@layer components {
+  /* Cards para tema escuro */
+  .theme-card {
+    @apply bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+
+  /* Botões principais */
+  .theme-button-primary {
+    @apply bg-gradient-to-r from-emerald-600 to-green-600 text-white hover:from-emerald-700 hover:to-green-700 transition-all duration-200 font-semibold;
+  }
+
+  /* Botões secundários */
+  .theme-button-secondary {
+    @apply bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-all duration-200;
+  }
+
+  /* Textos principais */
+  .theme-text-primary {
+    @apply text-gray-900 dark:text-white transition-colors;
+  }
+
+  /* Textos secundários */
+  .theme-text-secondary {
+    @apply text-gray-600 dark:text-gray-300 transition-colors;
+  }
+
+  /* Fundos de seção */
+  .theme-section-light {
+    @apply bg-white dark:bg-gray-900 transition-colors;
+  }
+
+  .theme-section-gray {
+    @apply bg-gray-50 dark:bg-gray-800 transition-colors;
+  }
+
+  /* Elementos de formulário */
+  .theme-input {
+    @apply border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors;
+  }
+}

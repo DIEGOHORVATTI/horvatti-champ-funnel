@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
+
 import {
   ArrowRight,
   BarChart3,
@@ -102,15 +103,15 @@ export default function Home() {
     <PageLayout>
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 to-green-600/5"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-600/5 to-green-600/5 dark:from-emerald-600/10 dark:to-green-600/10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <Award className="w-4 h-4 mr-2" />
               Plataforma #1 em Gestão Pecuária - Edição 2025
             </div>
             <h1
-              className="text-5xl lg:text-7xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Revolucione a
@@ -120,10 +121,11 @@ export default function Home() {
               </span>
               da Sua Fazenda
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               <strong>25+ módulos integrados</strong> em uma única plataforma: Dashboard BI,
               Marketplace, Sustentabilidade ESG, Clima, Genética, Prospecção de Leads e muito mais.
-              Aumente sua produtividade em até <strong className="text-emerald-600">45%</strong>.
+              Aumente sua produtividade em até{' '}
+              <strong className="text-emerald-600 dark:text-emerald-400">45%</strong>.
             </p>
 
             <form onSubmit={handleSubmit} className="max-w-md mx-auto mb-12">
@@ -133,7 +135,7 @@ export default function Home() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Seu melhor e-mail"
-                  className="flex-1 px-6 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none text-lg"
+                  className="flex-1 px-6 py-4 rounded-xl border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none text-lg transition-colors"
                   required
                 />
                 <button
@@ -150,22 +152,22 @@ export default function Home() {
                   )}
                 </button>
               </div>
-              <p className="text-sm text-gray-500 mt-3">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-3 transition-colors">
                 Demonstração gratuita • Sem compromisso • Suporte 24/7
               </p>
             </form>
 
-            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600">
+            <div className="flex flex-wrap justify-center items-center gap-8 text-gray-600 dark:text-gray-300 transition-colors">
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 <span>Setup em 15 minutos</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 <span>Teste grátis por 14 dias</span>
               </div>
               <div className="flex items-center">
-                <CheckCircle className="w-5 h-5 text-emerald-600 mr-2" />
+                <CheckCircle className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mr-2" />
                 <span>Suporte especializado</span>
               </div>
             </div>
@@ -174,16 +176,17 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section id="recursos" className="py-20 bg-white">
+      <section id="recursos" className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2
-              className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              Recursos Que Fazem a <span className="text-emerald-600">Diferença</span>
+              Recursos Que Fazem a{' '}
+              <span className="text-emerald-600 dark:text-emerald-400">Diferença</span>
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Tecnologia avançada desenvolvida especificamente para o agronegócio brasileiro
             </p>
           </div>
@@ -192,13 +195,17 @@ export default function Home() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="group p-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 border border-emerald-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
+                className="group p-8 rounded-2xl bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-900/20 dark:to-green-900/20 border border-emerald-100 dark:border-emerald-800/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="w-14 h-14 bg-gradient-to-br from-emerald-600 to-green-600 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                   <feature.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed transition-colors">
+                  {feature.description}
+                </p>
               </div>
             ))}
           </div>
@@ -255,16 +262,17 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section id="depoimentos" className="py-20 bg-gray-50">
+      <section id="depoimentos" className="py-20 bg-gray-50 dark:bg-gray-800 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2
-              className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
+              className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
-              O Que Nossos <span className="text-emerald-600">Clientes</span> Dizem
+              O Que Nossos <span className="text-emerald-600 dark:text-emerald-400">Clientes</span>{' '}
+              Dizem
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Histórias reais de produtores que transformaram seus negócios
             </p>
           </div>
@@ -273,20 +281,26 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={index}
-                className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+                className="bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
-                <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-lg mb-6 leading-relaxed transition-colors">
                   "{testimonial.content}"
                 </p>
-                <div className="border-t pt-4">
-                  <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                  <p className="text-emerald-600 text-sm">{testimonial.role}</p>
-                  <p className="text-gray-500 text-sm">{testimonial.animals}</p>
+                <div className="border-t dark:border-gray-700 pt-4 transition-colors">
+                  <p className="font-semibold text-gray-900 dark:text-white transition-colors">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-emerald-600 dark:text-emerald-400 text-sm transition-colors">
+                    {testimonial.role}
+                  </p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm transition-colors">
+                    {testimonial.animals}
+                  </p>
                 </div>
               </div>
             ))}
@@ -327,10 +341,10 @@ export default function Home() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full p-8 relative">
+          <div className="bg-white dark:bg-gray-900 rounded-2xl max-w-md w-full p-8 relative transition-colors">
             <button
               onClick={() => setShowModal(false)}
-              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
             >
               <X className="w-6 h-6" />
             </button>
@@ -340,27 +354,27 @@ export default function Home() {
                 <CheckCircle className="w-8 h-8 text-white" />
               </div>
 
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 transition-colors">
                 {currentStep === 1 ? 'Quase Lá!' : 'Sucesso!'}
               </h3>
 
               {currentStep === 1 ? (
                 <div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
                     Preencha alguns dados para acessar sua demonstração gratuita:
                   </p>
                   <form className="space-y-4">
                     <input
                       type="text"
                       placeholder="Nome completo"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
                     />
                     <input
                       type="tel"
                       placeholder="WhatsApp"
-                      className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors"
                     />
-                    <select className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none">
+                    <select className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-transparent outline-none transition-colors">
                       <option>Tamanho do rebanho</option>
                       <option>Até 100 animais</option>
                       <option>101-500 animais</option>
@@ -378,11 +392,11 @@ export default function Home() {
                 </div>
               ) : (
                 <div>
-                  <p className="text-gray-600 mb-6">
+                  <p className="text-gray-600 dark:text-gray-300 mb-6 transition-colors">
                     Demonstração liberada! Nossa equipe entrará em contato em até 2 horas para
                     agendar sua apresentação personalizada.
                   </p>
-                  <div className="space-y-3 text-sm text-gray-500">
+                  <div className="space-y-3 text-sm text-gray-500 dark:text-gray-400 transition-colors">
                     <div className="flex items-center">
                       <Clock className="w-4 h-4 mr-2" />
                       Demonstração de 30 minutos

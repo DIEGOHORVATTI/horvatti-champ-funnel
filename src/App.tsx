@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router'
+import { useEffect } from 'react'
 import HomePage from '@/pages/Home'
 import Produto from '@/pages/Produto'
 import Recursos from '@/pages/Recursos'
 import Precos from '@/pages/Precos'
 import Demonstracao from '@/pages/Demonstracao'
 import SobreNos from '@/pages/SobreNos'
-import PlaceholderPage from '@/pages/PlaceholderPage'
 import Treinamentos from '@/pages/Treinamentos'
 import Blog from '@/pages/Blog'
 import Suporte from '@/pages/Suporte'
@@ -14,6 +14,23 @@ import useScrollToTop from '@/hooks/useScrollToTop'
 
 function AppContent() {
   useScrollToTop()
+
+  // Inicialização do tema
+  useEffect(() => {
+    // Verificar tema salvo no localStorage
+    const savedTheme = localStorage.getItem('theme')
+
+    // Verificar preferência do sistema se não tiver tema salvo
+    if (!savedTheme) {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      if (prefersDark) {
+        document.documentElement.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
+      }
+    } else if (savedTheme === 'dark') {
+      document.documentElement.classList.add('dark')
+    }
+  }, [])
 
   return (
     <Routes>
@@ -26,16 +43,6 @@ function AppContent() {
 
       <Route path="/suporte" element={<Suporte />} />
 
-      <Route
-        path="/contato"
-        element={
-          <PlaceholderPage
-            title="Contato"
-            description="Entre em contato conosco através dos canais disponíveis abaixo."
-            comingSoon={false}
-          />
-        }
-      />
       <Route path="/treinamentos" element={<Treinamentos />} />
       <Route path="/blog" element={<Blog />} />
     </Routes>

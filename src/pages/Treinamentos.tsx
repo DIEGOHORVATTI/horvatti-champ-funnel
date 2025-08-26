@@ -14,10 +14,25 @@ import {
   Download,
 } from 'lucide-react'
 
+type Training = {
+  id: number
+  title: string
+  category: string
+  duration: string
+  format: string
+  level: string
+  description: string
+  features: string[]
+  participants: number
+  rating: number
+  price: string
+  image: string
+}
+
 export default function Treinamentos() {
   const [selectedCategory, setSelectedCategory] = useState('todos')
   const [showModal, setShowModal] = useState(false)
-  const [selectedTraining, setSelectedTraining] = useState<any>(null)
+  const [selectedTraining, setSelectedTraining] = useState<Training | null>(null)
 
   const categories = [
     { id: 'todos', name: 'Todos os Cursos' },
@@ -27,7 +42,7 @@ export default function Treinamentos() {
     { id: 'certificacao', name: 'Certificação' },
   ]
 
-  const trainings = [
+  const trainings: Training[] = [
     {
       id: 1,
       title: 'Introdução ao Horvatti Champ',
@@ -207,7 +222,7 @@ export default function Treinamentos() {
     },
   ]
 
-  const handleEnrollment = (training: any) => {
+  const handleEnrollment = (training: Training) => {
     setSelectedTraining(training)
     setShowModal(true)
   }
