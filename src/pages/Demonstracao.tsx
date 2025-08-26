@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import PageLayout from '@/components/PageLayout'
+
 import {
   Calendar,
   Phone,
@@ -76,17 +77,17 @@ export default function Demonstracao() {
               <CheckCircle className="w-10 h-10 text-white" />
             </div>
             <h1
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Demonstração Agendada!
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 transition-colors">
               Perfeito! Sua demonstração foi agendada com sucesso. Nossa equipe entrará em contato
               em breve para confirmar os detalhes.
             </p>
-            <div className="bg-emerald-50 p-6 rounded-2xl mb-8">
-              <div className="flex items-center justify-center space-x-8 text-sm text-emerald-800">
+            <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-2xl mb-8 transition-colors">
+              <div className="flex items-center justify-center space-x-8 text-sm text-emerald-800 dark:text-emerald-300 transition-colors">
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-2" />
                   30 minutos
@@ -118,7 +119,7 @@ export default function Demonstracao() {
             {/* Left Column - Information */}
             <div>
               <h1
-                className="text-5xl font-bold text-gray-900 mb-6 leading-tight"
+                className="text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
                 style={{ fontFamily: 'Space Grotesk, sans-serif' }}
               >
                 Veja o{' '}
@@ -127,21 +128,21 @@ export default function Demonstracao() {
                 </span>{' '}
                 em Ação
               </h1>
-              <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed transition-colors">
                 Agende uma demonstração personalizada e descubra como nossa plataforma pode
                 transformar a gestão da sua fazenda.
               </p>
 
               <div className="space-y-6 mb-10">
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Clock className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transition-colors">
+                    <Clock className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
                       30 Minutos de Demonstração
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300 transition-colors">
                       Apresentação completa das funcionalidades principais e como elas se aplicam ao
                       seu negócio.
                     </p>
@@ -149,14 +150,14 @@ export default function Demonstracao() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Users className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transition-colors">
+                    <Users className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
                       Consultor Especializado
                     </h3>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 dark:text-gray-300 transition-colors">
                       Nossos especialistas conhecem profundamente a pecuária e podem responder suas
                       dúvidas específicas.
                     </p>
@@ -164,12 +165,14 @@ export default function Demonstracao() {
                 </div>
 
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center mr-4 flex-shrink-0">
-                    <Zap className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl flex items-center justify-center mr-4 flex-shrink-0 transition-colors">
+                    <Zap className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-gray-900 mb-2">Setup Personalizado</h3>
-                    <p className="text-gray-600">
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2 transition-colors">
+                      Setup Personalizado
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 transition-colors">
                       Orientação sobre como configurar o sistema para as necessidades específicas da
                       sua propriedade.
                     </p>
@@ -177,11 +180,11 @@ export default function Demonstracao() {
                 </div>
               </div>
 
-              <div className="bg-emerald-50 p-6 rounded-2xl">
-                <h3 className="font-bold text-emerald-900 mb-3">
+              <div className="bg-emerald-50 dark:bg-emerald-900/30 p-6 rounded-2xl transition-colors">
+                <h3 className="font-bold text-emerald-900 dark:text-emerald-300 mb-3 transition-colors">
                   O que você verá na demonstração:
                 </h3>
-                <ul className="space-y-2 text-emerald-800">
+                <ul className="space-y-2 text-emerald-800 dark:text-emerald-400 transition-colors">
                   <li className="flex items-center">
                     <CheckCircle className="w-4 h-4 mr-3 flex-shrink-0" />
                     Dashboard em tempo real
@@ -203,22 +206,22 @@ export default function Demonstracao() {
             </div>
 
             {/* Right Column - Form */}
-            <div className="bg-white p-8 rounded-3xl shadow-2xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl transition-colors">
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center transition-colors">
                 Agendar Demonstração
               </h2>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 flex items-center mb-6">
-                  <AlertCircle className="w-5 h-5 text-red-600 mr-3 flex-shrink-0" />
-                  <p className="text-red-800 text-sm">{error}</p>
+                <div className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-xl p-4 flex items-center mb-6 transition-colors">
+                  <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 mr-3 flex-shrink-0" />
+                  <p className="text-red-800 dark:text-red-300 text-sm">{error}</p>
                 </div>
               )}
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                       Nome Completo
                     </label>
                     <div className="relative">
@@ -227,7 +230,7 @@ export default function Demonstracao() {
                         type="text"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                         placeholder="Seu nome"
                         required
                       />
@@ -235,14 +238,16 @@ export default function Demonstracao() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
+                      Email
+                    </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                       <input
                         type="email"
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                         placeholder="seu@email.com"
                         required
                       />
@@ -252,7 +257,7 @@ export default function Demonstracao() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                       WhatsApp
                     </label>
                     <div className="relative">
@@ -261,7 +266,7 @@ export default function Demonstracao() {
                         type="tel"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                         placeholder="(11) 99999-9999"
                         required
                       />
@@ -269,27 +274,27 @@ export default function Demonstracao() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                       Fazenda/Empresa
                     </label>
                     <input
                       type="text"
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                       placeholder="Nome da propriedade"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                     Tamanho do Rebanho
                   </label>
                   <select
                     value={formData.animals}
                     onChange={(e) => setFormData({ ...formData, animals: e.target.value })}
-                    className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                     required
                   >
                     <option value="">Selecione o tamanho</option>
@@ -303,7 +308,7 @@ export default function Demonstracao() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                       Data Preferida
                     </label>
                     <div className="relative">
@@ -312,7 +317,7 @@ export default function Demonstracao() {
                         type="date"
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full pl-10 pr-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                        className="w-full pl-10 pr-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                         min={new Date().toISOString().split('T')[0]}
                         required
                       />
@@ -320,13 +325,13 @@ export default function Demonstracao() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                       Horário
                     </label>
                     <select
                       value={formData.time}
                       onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                      className="w-full px-4 py-3 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                       required
                     >
                       <option value="">Selecione o horário</option>
@@ -356,7 +361,7 @@ export default function Demonstracao() {
                   )}
                 </button>
 
-                <p className="text-sm text-gray-600 text-center">
+                <p className="text-sm text-gray-600 dark:text-gray-400 text-center transition-colors">
                   Demonstração gratuita • Sem compromisso • Consultoria especializada
                 </p>
               </form>
