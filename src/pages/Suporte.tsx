@@ -187,12 +187,12 @@ export default function Suporte() {
       <section className="py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center bg-emerald-100 text-emerald-800 px-4 py-2 rounded-full text-sm font-semibold mb-8">
+            <div className="inline-flex items-center bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 px-4 py-2 rounded-full text-sm font-semibold mb-8 transition-colors">
               <Headphones className="w-4 h-4 mr-2" />
               Suporte Especializado 24/7
             </div>
             <h1
-              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Como Podemos{' '}
@@ -201,7 +201,7 @@ export default function Suporte() {
               </span>{' '}
               Você?
             </h1>
-            <p className="text-xl lg:text-2xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-10 max-w-3xl mx-auto leading-relaxed transition-colors">
               Nossa equipe de especialistas está pronta para resolver suas dúvidas e garantir que
               você aproveite ao máximo o Horvatti Champ.
             </p>
@@ -215,7 +215,7 @@ export default function Suporte() {
                   placeholder="Pesquise por dúvidas, tutoriais ou problemas..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 text-lg rounded-2xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none shadow-lg"
+                  className="w-full pl-12 pr-4 py-4 text-lg rounded-2xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none shadow-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white transition-colors"
                 />
               </div>
             </div>
@@ -241,16 +241,16 @@ export default function Suporte() {
       </section>
 
       {/* Support Channels */}
-      <section className="py-20 bg-white" id="atendimento">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors" id="atendimento">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Canais de Atendimento
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Escolha o canal que melhor atende sua necessidade
             </p>
           </div>
@@ -258,16 +258,22 @@ export default function Suporte() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {supportChannels.map((channel, index) => (
               <div key={index} className="relative group">
-                <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100">
+                <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700">
                   <div
                     className={`w-16 h-16 bg-gradient-to-br ${channel.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
                   >
                     <channel.icon className="w-8 h-8 text-white" />
                   </div>
 
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{channel.title}</h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">{channel.description}</p>
-                  <p className="text-sm text-gray-500 mb-6">{channel.available}</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 transition-colors">
+                    {channel.title}
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed transition-colors">
+                    {channel.description}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 transition-colors">
+                    {channel.available}
+                  </p>
 
                   <button
                     className={`w-full bg-gradient-to-r ${channel.color} text-white py-3 rounded-xl hover:shadow-lg transition-all duration-200 font-semibold`}
@@ -296,16 +302,16 @@ export default function Suporte() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Perguntas Frequentes
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Respostas para as dúvidas mais comuns dos nossos usuários
             </p>
           </div>
@@ -319,7 +325,7 @@ export default function Suporte() {
                 className={`px-6 py-3 rounded-xl font-semibold transition-all duration-200 ${
                   selectedCategory === category.id
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                    : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors'
                 }`}
               >
                 {category.name} ({category.count})
@@ -330,17 +336,22 @@ export default function Suporte() {
           {/* FAQ List */}
           <div className="max-w-4xl mx-auto space-y-4">
             {searchFilteredFaqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl overflow-hidden">
+              <div
+                key={index}
+                className="bg-gray-50 dark:bg-gray-800 rounded-2xl overflow-hidden transition-colors"
+              >
                 <button
                   onClick={() => setOpenFaq(openFaq === index ? null : index)}
-                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors"
+                  className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
                 >
                   <div className="flex items-center">
-                    <HelpCircle className="w-6 h-6 text-emerald-600 mr-4 flex-shrink-0" />
-                    <span className="text-lg font-semibold text-gray-900">{faq.question}</span>
+                    <HelpCircle className="w-6 h-6 text-emerald-600 dark:text-emerald-400 mr-4 flex-shrink-0 transition-colors" />
+                    <span className="text-lg font-semibold text-gray-900 dark:text-white transition-colors">
+                      {faq.question}
+                    </span>
                   </div>
                   <ChevronDown
-                    className={`w-5 h-5 text-gray-500 transition-transform ${
+                    className={`w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform ${
                       openFaq === index ? 'rotate-180' : ''
                     }`}
                   />
@@ -348,7 +359,9 @@ export default function Suporte() {
                 {openFaq === index && (
                   <div className="px-6 pb-6">
                     <div className="pl-10">
-                      <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
+                      <p className="text-gray-700 dark:text-gray-300 leading-relaxed transition-colors">
+                        {faq.answer}
+                      </p>
                     </div>
                   </div>
                 )}
@@ -358,9 +371,11 @@ export default function Suporte() {
 
           {searchFilteredFaqs.length === 0 && (
             <div className="text-center py-12">
-              <AlertCircle className="w-12 h-12 text-gray-400 mx-auto mb-4" />
-              <p className="text-xl text-gray-600 mb-2">Nenhuma resposta encontrada</p>
-              <p className="text-gray-500">
+              <AlertCircle className="w-12 h-12 text-gray-400 dark:text-gray-500 mx-auto mb-4 transition-colors" />
+              <p className="text-xl text-gray-600 dark:text-gray-300 mb-2 transition-colors">
+                Nenhuma resposta encontrada
+              </p>
+              <p className="text-gray-500 dark:text-gray-400 transition-colors">
                 Tente usar palavras-chave diferentes ou entre em contato conosco.
               </p>
             </div>
@@ -369,25 +384,25 @@ export default function Suporte() {
       </section>
 
       {/* Contact Form */}
-      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50">
+      <section className="py-20 bg-gradient-to-br from-emerald-50 to-green-50 dark:bg-gradient-to-br dark:from-gray-900 dark:to-gray-800 transition-colors">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              className="text-4xl font-bold text-gray-900 mb-6"
+              className="text-4xl font-bold text-gray-900 dark:text-white mb-6 transition-colors"
               style={{ fontFamily: 'Space Grotesk, sans-serif' }}
             >
               Criar Ticket de Suporte
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-600 dark:text-gray-300 transition-colors">
               Não encontrou o que procurava? Abra um ticket e nossa equipe te ajudará
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12">
+          <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 lg:p-12 transition-colors">
             <form onSubmit={handleFormSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                     Nome Completo*
                   </label>
                   <input
@@ -396,35 +411,39 @@ export default function Suporte() {
                     value={formData.name}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Email*</label>
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
+                    Email*
+                  </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">Telefone</label>
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
+                    Telefone
+                  </label>
                   <input
                     type="tel"
                     name="phone"
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-semibold text-gray-700 mb-2">
+                  <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                     Categoria*
                   </label>
                   <select
@@ -432,7 +451,7 @@ export default function Suporte() {
                     value={formData.category}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                   >
                     <option value="">Selecione uma categoria</option>
                     <option value="tecnico">Problema Técnico</option>
@@ -445,7 +464,7 @@ export default function Suporte() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
                   Prioridade*
                 </label>
                 <select
@@ -453,7 +472,7 @@ export default function Suporte() {
                   value={formData.priority}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                 >
                   <option value="">Selecione a prioridade</option>
                   <option value="baixa">Baixa</option>
@@ -464,7 +483,9 @@ export default function Suporte() {
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Assunto*</label>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
+                  Assunto*
+                </label>
                 <input
                   type="text"
                   name="subject"
@@ -472,12 +493,14 @@ export default function Suporte() {
                   onChange={handleInputChange}
                   required
                   placeholder="Resumo do problema ou dúvida"
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-semibold text-gray-700 mb-2">Descrição*</label>
+                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2 transition-colors">
+                  Descrição*
+                </label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -485,7 +508,7 @@ export default function Suporte() {
                   required
                   rows={6}
                   placeholder="Descreva detalhadamente seu problema ou dúvida..."
-                  className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none resize-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 focus:ring-2 focus:ring-emerald-500 focus:border-transparent outline-none bg-white dark:bg-gray-700 text-gray-900 dark:text-white transition-colors resize-none"
                 ></textarea>
               </div>
 
@@ -512,7 +535,7 @@ export default function Suporte() {
       </section>
 
       {/* Business Hours */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-white dark:bg-gray-900 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-gradient-to-r from-emerald-600 to-green-600 rounded-3xl p-12 text-center">
             <div className="max-w-3xl mx-auto">
